@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/main.css'
 
 const Main = () => {
   const [text, setText] = useState('')
+  const [disabledBtn, setDisabledBtn] = useState(true)
+
+  useEffect(() => {
+    if (text) setDisabledBtn(false)
+    else setDisabledBtn(true)
+  })
 
   return (
     <div>
@@ -14,8 +20,13 @@ const Main = () => {
           value={ text }
         />
         <section>
-          <button type='button'>Adicionar</button>
-          <button type='button'>Remover</button>
+          <button
+          type='button'
+          disabled={ disabledBtn }
+        >
+          Adicionar
+        </button>
+          <button type=''>Remover</button>
           <button type='button'>Editar</button>
           <button type='button'>Filtrar</button>
         </section>
