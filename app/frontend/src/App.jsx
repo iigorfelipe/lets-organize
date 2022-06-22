@@ -1,9 +1,10 @@
 import React from 'react'
+import Main from './components/main'
 
 const App = () => {
   return (
     <div>
-      Hello World
+      <Main />
     </div>
   )
 }
