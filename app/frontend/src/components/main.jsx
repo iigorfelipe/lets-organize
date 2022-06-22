@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/main.css'
 
 const Main = () => {
+  const [text, setText] = useState('')
+
   return (
     <div>
       <div>
         <input
           type='text'
           placeholder='Digite uma tarefa'
+          onChange={ (e) => setText(e.target.value) }
+          value={ text }
         />
         <section>
           <button type='button'>Adicionar</button>
@@ -16,7 +20,7 @@ const Main = () => {
           <button type='button'>Filtrar</button>
         </section>
         <div>
-          text
+          { text }
         </div>
       </div>
     </div>
