@@ -6,7 +6,7 @@ const Main = () => {
   const [btnAdd, setBtnAdd] = useState(true)
   const [btnDelete, setBtnDelete] = useState(true)
   const [list, setList] = useState([])
-  const [checkbox, setCheckbox] = useState(false)
+  const [checkbox, setCheckbox] = useState([])
 
   useEffect(() => {
     if (text.trim()) setBtnAdd(false)
@@ -22,6 +22,15 @@ const Main = () => {
   const addText = () => {
     setList([...list, text])
     setText('')
+  }
+
+  const handleChecked = (_e, i) => {
+    const index = checkbox.indexOf(i)
+
+    if (index === -1) checkbox.push(i)
+    else checkbox.splice(index, 1)
+
+    setCheckbox([...checkbox])
   }
 
   const deleteText = () => {
@@ -60,14 +69,14 @@ const Main = () => {
         list.map((item, i) => (
           <div key={ i }>
             <input
+              id={ i }
               type='checkbox'
-              checked={ checkbox[i] }
-              onChange={ (e) => setCheckbox(e.target.checked) }
+              checked={ checkbox.includes(i) }
+              onChange={ (e) => handleChecked(e, i) }
               className='check'
-              value={ item }
               onClick={ verifyCheck }
             />
-            { item }
+            <label htmlFor={ i }>{ item }</label>
           </div>
         ))
       }
