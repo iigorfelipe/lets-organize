@@ -3,17 +3,31 @@ import '../css/main.css'
 
 const Main = () => {
   const [text, setText] = useState('')
-  const [disabledBtn, setDisabledBtn] = useState(true)
+  const [btnAdd, setBtnAdd] = useState(true)
+  const [btnDelete, setBtnDelete] = useState(true)
   const [list, setList] = useState([])
+  const [checkbox, setCheckbox] = useState(false)
 
   useEffect(() => {
-    if (text.trim()) setDisabledBtn(false)
-    else setDisabledBtn(true)
+    if (text.trim()) setBtnAdd(false)
+    else setBtnAdd(true)
   })
+
+  const verifyCheck = () => {
+    const inputs = document.querySelectorAll('.check')
+    const array = [...inputs]
+    setBtnDelete(array.every(item => !item.checked))
+  }
 
   const addText = () => {
     setList([...list, text])
     setText('')
+  }
+
+  const deleteText = () => {
+    if (checkbox) {
+      console.log('PREENCHIDO')
+    }
   }
 
   return (
@@ -27,22 +41,33 @@ const Main = () => {
         />
         <section>
           <button
-          type='button'
-          disabled={ disabledBtn }
-          onClick={ addText }
-        >
-          Adicionar
-        </button>
-          <button type='button'>Remover</button>
-          <button type='button'>Editar</button>
-          <button type='button'>Filtrar</button>
+            disabled={ btnAdd }
+            onClick={ addText }
+          >
+            Adicionar
+          </button>
+          <button
+            disabled={ btnDelete }
+            onClick={ deleteText }
+          >
+            Remover
+          </button>
+          <button>Editar</button>
+          <button>Filtrar</button>
         </section>
       </div>
       {
         list.map((item, i) => (
           <div key={ i }>
-            <input type="checkbox" />
-            <span>{ item }</span>
+            <input
+              type='checkbox'
+              checked={ checkbox[i] }
+              onChange={ (e) => setCheckbox(e.target.checked) }
+              className='check'
+              value={ item }
+              onClick={ verifyCheck }
+            />
+            { item }
           </div>
         ))
       }
