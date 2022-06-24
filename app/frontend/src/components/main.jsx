@@ -43,6 +43,7 @@ const Main = () => {
         item.parentNode.remove()
       }
     })
+    setBtnDelete(true)
   }
 
   return (
