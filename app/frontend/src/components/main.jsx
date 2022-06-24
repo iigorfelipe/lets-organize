@@ -7,6 +7,7 @@ const Main = () => {
   const [btnDelete, setBtnDelete] = useState(true)
   const [list, setList] = useState([])
   const [checkbox, setCheckbox] = useState([])
+  const [nodeElement, setNodeElement] = useState([])
 
   useEffect(() => {
     if (text.trim()) setBtnAdd(false)
@@ -14,9 +15,12 @@ const Main = () => {
   })
 
   const verifyCheck = () => {
-    const inputs = document.querySelectorAll('.check')
-    const array = [...inputs]
-    setBtnDelete(array.every(item => !item.checked))
+    const nodeListOfCheckboxInput = document.querySelectorAll('.checkbox')
+    const arrayOfCheckboxInput = [...nodeListOfCheckboxInput]
+    const uncheckeds = arrayOfCheckboxInput.every(item => !item.checked)
+
+    setNodeElement(arrayOfCheckboxInput)
+    setBtnDelete(uncheckeds)
   }
 
   const addText = () => {
@@ -34,9 +38,11 @@ const Main = () => {
   }
 
   const deleteText = () => {
-    if (checkbox) {
-      console.log('PREENCHIDO')
-    }
+    nodeElement.forEach((item) => {
+      if (item.checked) {
+        item.parentNode.remove()
+      }
+    })
   }
 
   return (
@@ -73,7 +79,7 @@ const Main = () => {
               type='checkbox'
               checked={ checkbox.includes(i) }
               onChange={ (e) => handleChecked(e, i) }
-              className='check'
+              className='checkbox'
               onClick={ verifyCheck }
             />
             <label htmlFor={ i }>{ item }</label>
