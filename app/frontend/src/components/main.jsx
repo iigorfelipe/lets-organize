@@ -3,9 +3,9 @@ import '../css/main.css'
 
 const Main = () => {
   const [text, setText] = useState('')
+  const [list, setList] = useState([])
   const [btnAdd, setBtnAdd] = useState(true)
   const [btnDelete, setBtnDelete] = useState(true)
-  const [list, setList] = useState([])
   const [nodeElement, setNodeElement] = useState([])
 
   useEffect(() => {
@@ -23,7 +23,12 @@ const Main = () => {
   }
 
   const addText = () => {
-    setList([...list, text])
+    setList([...list,
+      {
+        id: list.length,
+        newText: text
+      }
+    ])
     setText('')
   }
 
@@ -58,7 +63,6 @@ const Main = () => {
           >
             Remover
           </button>
-          <button>Editar</button>
           <button>Filtrar</button>
         </section>
       </div>
@@ -71,7 +75,8 @@ const Main = () => {
               className='checkbox'
               onClick={ verifyCheck }
             />
-            <label htmlFor={ i }>{ item }</label>
+            <label htmlFor={ i }>{ item.newText }</label>
+            <button>Editar</button>
           </div>
         ))
       }
