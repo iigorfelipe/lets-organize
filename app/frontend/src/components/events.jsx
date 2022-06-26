@@ -24,7 +24,12 @@ class Events {
         >
           Remover
         </button>
-        <button>Filtrar</button>
+        <label htmlFor='select'>Ordenar por:</label>
+        <select id='select'>
+          <option value='abcd'>Alfabética</option>
+          <option value='data'>Data de criação</option>
+          <option value='stts'>Status</option>
+        </select>
       </section>
     )
   }
