@@ -4,9 +4,10 @@ import '../css/main.css'
 const Main = () => {
   const [text, setText] = useState('')
   const [editedText, setEditedText] = useState({
-    editedInputClass: 'inputOff',
     textEdited: '',
+    editedInputClass: 'inputOff',
     btnConfirmClass: 'confirmOff',
+    btnCancelClass: 'cancelOff',
     index: 0
   })
   const [list, setList] = useState([])
@@ -60,6 +61,7 @@ const Main = () => {
           {
             ...editedText,
             editedInputClass: 'inputOn',
+            btnCancelClass: 'cancelOn',
             index: i
           }
         )
@@ -86,6 +88,7 @@ const Main = () => {
         ...editedText,
         editedInputClass: 'inputOff',
         btnConfirmClass: 'confirmOff',
+        btnCancelClass: 'cancelOff',
         textEdited: ''
       }
     )
@@ -97,6 +100,7 @@ const Main = () => {
         ...editedText,
         editedInputClass: 'inputOff',
         btnConfirmClass: 'confirmOff',
+        btnCancelClass: 'cancelOff',
         textEdited: ''
       }
     )
@@ -163,7 +167,7 @@ const Main = () => {
         Confirmar
       </button>
       <button
-        className={ editedText.btnConfirmClass }
+        className={ editedText.btnCancelClass }
         onClick={ btnCancelEdit }
       >
         Cancelar
