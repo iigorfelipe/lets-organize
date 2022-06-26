@@ -4,10 +4,11 @@ import '../css/main.css'
 const Main = () => {
   const [text, setText] = useState('')
   const [editedText, setEditedText] = useState({
-    btnEditClass: 'editOff',
+    editedInputClass: 'inputOff',
     textEdited: '',
     confirmEdit: false,
-    btnConfirmClass: 'confirmOff'
+    btnConfirmClass: 'confirmOff',
+    index: 0
   })
   const [list, setList] = useState([])
   const [btnAdd, setBtnAdd] = useState(true)
@@ -47,21 +48,26 @@ const Main = () => {
     setBtnDelete(true)
   }
 
-  const editText = () => {
-    setEditedText(
-      {
-        btnEditClass: 'editOn',
-        textEdited: '',
-        confirmEdit: false,
-        btnConfirmClass: 'confirmOff'
-      }
-    )
-  }
-
-  const btnConfirmEdit = (_e, i) => {
+  const editText = (_e, i) => {
     list.forEach((item) => {
       if (item.id === i) {
-        list.splice(i, 1,
+        setEditedText(
+          {
+            ...editedText,
+            editedInputClass: 'inputOn',
+            index: i
+          }
+        )
+      }
+    })
+  }
+
+  const btnConfirmEdit = () => {
+    const { index } = editedText
+
+    list.forEach((item) => {
+      if (item.id === index) {
+        list.splice(index, 1,
           {
             id: item.id,
             newText: editedText.textEdited
@@ -70,6 +76,14 @@ const Main = () => {
       }
     })
     setList([...list])
+    setEditedText(
+      {
+        ...editedText,
+        editedInputClass: 'inputOff',
+        btnConfirmClass: 'confirmOff',
+        textEdited: ''
+      }
+    )
   }
 
   return (
@@ -107,30 +121,31 @@ const Main = () => {
               onClick={ verifyCheck }
             />
             <label htmlFor={ i }>{ item.newText }</label>
-            <button onClick={ editText }>Editar</button>
-            <input
-              type='text'
-              className={ editedText.btnEditClass }
-              onChange={
-                (e) => setEditedText(
-                  {
-                    btnEditClass: 'editOn',
-                    textEdited: e.target.value,
-                    confirmEdit: true,
-                    btnConfirmEdit: 'confirmOn'
-                  }
-                )
-              }
-            />
-            <button
-              onClick={ (e) => btnConfirmEdit(e, i) }
-              className={ editedText.btnConfirmClass }
-            >
-              Confirmar
-            </button>
+            <button onClick={ (e) => editText(e, i) }>Editar</button>
           </div>
         ))
       }
+      <input
+        type='text'
+        className={ editedText.editedInputClass }
+        onChange={
+          (e) => setEditedText(
+            {
+              ...editedText,
+              textEdited: e.target.value,
+              confirmEdit: true,
+              btnConfirmClass: 'confirmOn'
+            }
+          )
+        }
+        value={ editedText.textEdited }
+      />
+      <button
+        className={ editedText.btnConfirmClass }
+        onClick={ btnConfirmEdit }
+      >
+        Confirmar
+      </button>
     </div>
   )
 }

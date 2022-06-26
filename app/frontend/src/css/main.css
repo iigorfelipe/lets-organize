@@ -4,10 +4,10 @@ body {
   background: rgb(63, 56, 56);
 }
 
-.editOff, .confirmOff {
+.inputOff, .confirmOff {
   display: none;
 }
 
-.editOn, .confirmOn {
+.inputOn, .confirmOn {
   display: inline;
 }
