@@ -33,6 +33,7 @@ const Main = () => {
 
     setNodeElement(arrayOfCheckboxInput)
     setBtnDelete(uncheckeds)
+    btnCancelEdit()
   }
 
   const addText = () => {
@@ -83,15 +84,7 @@ const Main = () => {
       }
     })
     setList([...list])
-    setEditedText(
-      {
-        ...editedText,
-        editedInputClass: 'inputOff',
-        btnConfirmClass: 'confirmOff',
-        btnCancelClass: 'cancelOff',
-        textEdited: ''
-      }
-    )
+    btnCancelEdit()
   }
 
   const btnCancelEdit = () => {
