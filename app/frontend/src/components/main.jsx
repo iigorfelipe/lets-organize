@@ -101,7 +101,7 @@ const Main = () => {
   }
 
   return (
-    <div>
+    <div className='main-container'>
       <Events.ButtonsUp
         btnAdd={ btnAdd }
         addText={ addText }

@@ -3,27 +3,28 @@ import React from 'react'
 class Events {
   ButtonsUp = (props) => {
     return (
-      <section>
+      <section className='btnsUp'>
         <div>
           <input
             type='text'
             placeholder='Digite uma tarefa'
             onChange={ (e) => props.setText(e.target.value) }
             value={ props.text }
+            maxLength='50'
           />
+          <button
+            disabled={ props.btnAdd }
+            onClick={ props.addText }
+          >
+            Adicionar
+          </button>
+          <button
+            disabled={ props.btnDelete }
+            onClick={ props.deleteText }
+          >
+            Remover
+          </button>
         </div>
-        <button
-          disabled={ props.btnAdd }
-          onClick={ props.addText }
-        >
-          Adicionar
-        </button>
-        <button
-          disabled={ props.btnDelete }
-          onClick={ props.deleteText }
-        >
-          Remover
-        </button>
         <label htmlFor='select'>Ordenar por:</label>
         <select id='select'>
           <option value='abcd'>Alfabética</option>
@@ -36,57 +37,70 @@ class Events {
 
   Tasks = (props) => {
     return (
-      props.list.map((item, i) => (
-        <div key={ i }>
-          <input
-            id={ i }
-            type='checkbox'
-            className='checkbox'
-            onClick={ props.verifyCheck }
-          />
-          <label htmlFor={ i }>
-            { item.newText }
-          </label>
-          <button
-            onClick={ (e) => props.editText(e, i) }
-          >
-            Editar
-          </button>
-        </div>
-      ))
+      <div className='tasks-container'>
+        {
+          props.list.map((item, i) => (
+            <div key={ i }>
+              <input
+                id={ i }
+                type='checkbox'
+                className='checkbox'
+                onClick={ props.verifyCheck }
+              />
+              <label htmlFor={ i }>
+                { item.newText }
+              </label>
+              <div className='btns'>
+                <button
+                  onClick={ (e) => props.editText(e, i) }
+                >
+                  Editar
+                </button>
+                <select id={ i }>
+                  <option value='abcd'>Pendente</option>
+                  <option value='data'>Em andamento</option>
+                  <option value='stts'>Pronto</option>
+                </select>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     )
   }
 
   ButtonsDown = (props) => {
     return (
-      <section>
-        <input
-          type='text'
-          className={ props.editedText.editedInputClass }
-          onChange={
-            (e) => props.setEditedText(
-              {
-                ...props.editedText,
-                textEdited: e.target.value,
-                btnConfirmClass: 'confirmOn'
-              }
-            )
-          }
-          value={ props.editedText.textEdited }
-        />
-        <button
-          className={ props.editedText.btnConfirmClass }
-          onClick={ props.btnConfirmEdit }
-          disabled={ props.btnEdit }
-        >
-          Confirmar
-        </button>
-        <button
-          className={ props.editedText.btnCancelClass }
-          onClick={ props.btnCancelEdit }
-        >
-          Cancelar
-        </button>
+      <section className='btnsDown'>
+        <div>
+          <input
+            type='text'
+            className={ props.editedText.editedInputClass }
+            onChange={
+              (e) => props.setEditedText(
+                {
+                  ...props.editedText,
+                  textEdited: e.target.value,
+                  btnConfirmClass: 'confirmOn'
+                }
+              )
+            }
+            value={ props.editedText.textEdited }
+          />
+          <button
+            className={ props.editedText.btnCancelClass }
+            onClick={ props.btnCancelEdit }
+          >
+            Cancelar
+          </button>
+          <button
+            className={ props.editedText.btnConfirmClass }
+            onClick={ props.btnConfirmEdit }
+            disabled={ props.btnEdit }
+          >
+            Confirmar
+          </button>
+        </div>
       </section>
     )
   }
