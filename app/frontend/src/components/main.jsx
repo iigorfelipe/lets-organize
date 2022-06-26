@@ -91,6 +91,17 @@ const Main = () => {
     )
   }
 
+  const btnCancelEdit = () => {
+    setEditedText(
+      {
+        ...editedText,
+        editedInputClass: 'inputOff',
+        btnConfirmClass: 'confirmOff',
+        textEdited: ''
+      }
+    )
+  }
+
   return (
     <div>
       <div>
@@ -150,6 +161,12 @@ const Main = () => {
         disabled={ btnEdit }
       >
         Confirmar
+      </button>
+      <button
+        className={ editedText.btnConfirmClass }
+        onClick={ btnCancelEdit }
+      >
+        Cancelar
       </button>
     </div>
   )
