@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../css/main.css'
+import Events from './events'
 
 const Main = () => {
   const [text, setText] = useState('')
@@ -101,70 +102,26 @@ const Main = () => {
 
   return (
     <div>
-      <div>
-        <input
-          type='text'
-          placeholder='Digite uma tarefa'
-          onChange={ (e) => setText(e.target.value) }
-          value={ text }
-        />
-        <section>
-          <button
-            disabled={ btnAdd }
-            onClick={ addText }
-          >
-            Adicionar
-          </button>
-          <button
-            disabled={ btnDelete }
-            onClick={ deleteText }
-          >
-            Remover
-          </button>
-          <button>Filtrar</button>
-        </section>
-      </div>
-      {
-        list.map((item, i) => (
-          <div key={ i }>
-            <input
-              id={ i }
-              type='checkbox'
-              className='checkbox'
-              onClick={ verifyCheck }
-            />
-            <label htmlFor={ i }>{ item.newText }</label>
-            <button onClick={ (e) => editText(e, i) }>Editar</button>
-          </div>
-        ))
-      }
-      <input
-        type='text'
-        className={ editedText.editedInputClass }
-        onChange={
-          (e) => setEditedText(
-            {
-              ...editedText,
-              textEdited: e.target.value,
-              btnConfirmClass: 'confirmOn'
-            }
-          )
-        }
-        value={ editedText.textEdited }
+      <Events.ButtonsUp
+        btnAdd={ btnAdd }
+        addText={ addText }
+        btnDelete={ btnDelete }
+        deleteText={ deleteText }
+        setText={ setText }
+        text={ text }
       />
-      <button
-        className={ editedText.btnConfirmClass }
-        onClick={ btnConfirmEdit }
-        disabled={ btnEdit }
-      >
-        Confirmar
-      </button>
-      <button
-        className={ editedText.btnCancelClass }
-        onClick={ btnCancelEdit }
-      >
-        Cancelar
-      </button>
+      <Events.Tasks
+        list={ list }
+        verifyCheck={ verifyCheck }
+        editText={ editText }
+      />
+      <Events.ButtonsDown
+        editedText={ editedText }
+        setEditedText={ setEditedText }
+        btnConfirmEdit={ btnConfirmEdit }
+        btnEdit={ btnEdit }
+        btnCancelEdit={ btnCancelEdit }
+      />
     </div>
   )
 }
