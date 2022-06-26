@@ -6,18 +6,23 @@ const Main = () => {
   const [editedText, setEditedText] = useState({
     editedInputClass: 'inputOff',
     textEdited: '',
-    confirmEdit: false,
     btnConfirmClass: 'confirmOff',
     index: 0
   })
   const [list, setList] = useState([])
   const [btnAdd, setBtnAdd] = useState(true)
   const [btnDelete, setBtnDelete] = useState(true)
+  const [btnEdit, setBtnEdit] = useState(true)
   const [nodeElement, setNodeElement] = useState([])
 
   useEffect(() => {
     if (text.trim()) setBtnAdd(false)
     else setBtnAdd(true)
+  })
+
+  useEffect(() => {
+    if (editedText.textEdited.trim()) setBtnEdit(false)
+    else setBtnEdit(true)
   })
 
   const verifyCheck = () => {
@@ -133,7 +138,6 @@ const Main = () => {
             {
               ...editedText,
               textEdited: e.target.value,
-              confirmEdit: true,
               btnConfirmClass: 'confirmOn'
             }
           )
@@ -143,6 +147,7 @@ const Main = () => {
       <button
         className={ editedText.btnConfirmClass }
         onClick={ btnConfirmEdit }
+        disabled={ btnEdit }
       >
         Confirmar
       </button>
