@@ -1,4 +1,5 @@
 import React from 'react'
+import { BiEdit } from 'react-icons/bi'
 
 class Events {
   ButtonsUp = (props) => {
@@ -51,11 +52,7 @@ class Events {
                 { item.newText }
               </label>
               <div className='btns'>
-                <button
-                  onClick={ (e) => props.editText(e, i) }
-                >
-                  Editar
-                </button>
+                <BiEdit onClick={ (e) => props.editText(e, i) } />
                 <select id={ i }>
                   <option value='abcd'>Pendente</option>
                   <option value='data'>Em andamento</option>
