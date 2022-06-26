@@ -3,6 +3,12 @@ import '../css/main.css'
 
 const Main = () => {
   const [text, setText] = useState('')
+  const [editedText, setEditedText] = useState({
+    btnEditClass: 'editOff',
+    textEdited: '',
+    confirmEdit: false,
+    btnConfirmClass: 'confirmOff'
+  })
   const [list, setList] = useState([])
   const [btnAdd, setBtnAdd] = useState(true)
   const [btnDelete, setBtnDelete] = useState(true)
@@ -41,6 +47,31 @@ const Main = () => {
     setBtnDelete(true)
   }
 
+  const editText = () => {
+    setEditedText(
+      {
+        btnEditClass: 'editOn',
+        textEdited: '',
+        confirmEdit: false,
+        btnConfirmClass: 'confirmOff'
+      }
+    )
+  }
+
+  const btnConfirmEdit = (_e, i) => {
+    list.forEach((item) => {
+      if (item.id === i) {
+        list.splice(i, 1,
+          {
+            id: item.id,
+            newText: editedText.textEdited
+          }
+        )
+      }
+    })
+    setList([...list])
+  }
+
   return (
     <div>
       <div>
@@ -76,7 +107,27 @@ const Main = () => {
               onClick={ verifyCheck }
             />
             <label htmlFor={ i }>{ item.newText }</label>
-            <button>Editar</button>
+            <button onClick={ editText }>Editar</button>
+            <input
+              type='text'
+              className={ editedText.btnEditClass }
+              onChange={
+                (e) => setEditedText(
+                  {
+                    btnEditClass: 'editOn',
+                    textEdited: e.target.value,
+                    confirmEdit: true,
+                    btnConfirmEdit: 'confirmOn'
+                  }
+                )
+              }
+            />
+            <button
+              onClick={ (e) => btnConfirmEdit(e, i) }
+              className={ editedText.btnConfirmClass }
+            >
+              Confirmar
+            </button>
           </div>
         ))
       }
