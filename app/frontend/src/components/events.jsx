@@ -48,15 +48,18 @@ class Events {
                 className='checkbox'
                 onClick={ props.verifyCheck }
               />
-              <label htmlFor={ i }>
-                { item.newText }
-              </label>
+              <label htmlFor={ i }>{ item.newText }</label>
+
               <div className='btns'>
                 <BiEdit onClick={ (e) => props.editText(e, i) } />
-                <select id={ i }>
-                  <option value='abcd'>Pendente</option>
-                  <option value='data'>Em andamento</option>
-                  <option value='stts'>Pronto</option>
+                <select
+                  id={ i }
+                  onClick={ (e) => props.handleStatus(e, i) }
+                >
+                  <option value='status'>Status</option>
+                  <option value='pendente'>Pendente</option>
+                  <option value='andamento'>Em andamento</option>
+                  <option value='pronto'>Pronto</option>
                 </select>
               </div>
             </div>

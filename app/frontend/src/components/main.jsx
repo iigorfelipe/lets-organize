@@ -100,6 +100,22 @@ const Main = () => {
     )
   }
 
+  const handleStatus = (e, i) => {
+    list.forEach((item) => {
+      if (item.id === i) {
+        if (e.target.value === 'pendente') {
+          console.log(i, 'pendente')
+        }
+        if (e.target.value === 'andamento') {
+          console.log(i, 'andamento')
+        }
+        if (e.target.value === 'pronto') {
+          console.log(i, 'pronto')
+        }
+      }
+    })
+  }
+
   return (
     <div className='main-container'>
       <Events.ButtonsUp
@@ -114,6 +130,7 @@ const Main = () => {
         list={ list }
         verifyCheck={ verifyCheck }
         editText={ editText }
+        handleStatus={ handleStatus }
       />
       <Events.ButtonsDown
         editedText={ editedText }
