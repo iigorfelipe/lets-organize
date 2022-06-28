@@ -74,7 +74,6 @@ const Main = () => {
         )
         setStatus(
           {
-            ...status,
             pending: 'pendingOn',
             inProgress: 'inProgressOn',
             ready: 'readyOn'
@@ -109,6 +108,13 @@ const Main = () => {
         btnConfirmClass: 'confirmOff',
         btnCancelClass: 'cancelOff',
         textEdited: ''
+      }
+    )
+    setStatus(
+      {
+        pending: 'pendingOff',
+        inProgress: 'inProgressOff',
+        ready: 'readyOff'
       }
     )
   }
