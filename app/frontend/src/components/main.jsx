@@ -4,6 +4,8 @@ import { GiProgression } from 'react-icons/gi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import '../css/main.css'
 import Events from './events'
+import ButtonsUp from './eventos/buttonsUp'
+import ButtonsDown from './eventos/buttonsDown'
 
 const Main = () => {
   const [text, setText] = useState('')
@@ -143,7 +145,7 @@ const Main = () => {
     setList([...list])
     btnCancelEdit()
   }
-
+  console.log(list)
   const sortABCD = () => {
     list.sort((a, b) => {
       if (a.newText > b.newText) return 1
@@ -154,35 +156,35 @@ const Main = () => {
     })
   }
 
-  const sortDATA = () => {
-    list.sort((a, b) => {
-      if (a.id > b.id) return 1
-      if (a.id < b.id) return -1
+  // const sortDATA = () => {
+  //   list.sort((a, b) => {
+  //     if (a.id > b.id) return 1
+  //     if (a.id < b.id) return -1
 
-      setList([...list])
-      return 0
-    })
-  }
+  //     setList([...list])
+  //     return 0
+  //   })
+  // }
 
-  const sortSTTS = () => {
-    list.sort((a, b) => {
-      if (a.stts > b.stts) return 1
-      if (a.stts < b.stts) return -1
+  // const sortSTTS = () => {
+  //   list.sort((a, b) => {
+  //     if (a.stts > b.stts) return 1
+  //     if (a.stts < b.stts) return -1
 
-      setList([...list])
-      return 0
-    })
-  }
+  //     setList([...list])
+  //     return 0
+  //   })
+  // }
 
   const sortList = (order) => {
     if (order === 'abcd') sortABCD()
-    if (order === 'data') sortDATA()
-    if (order === 'stts') sortSTTS()
+    // if (order === 'data') sortDATA()
+    // if (order === 'stts') sortSTTS()
   }
 
   return (
     <div className='main-container'>
-      <Events.ButtonsUp
+      <ButtonsUp
         btnAdd={ btnAdd }
         addText={ addText }
         btnDelete={ btnDelete }
@@ -196,7 +198,7 @@ const Main = () => {
         verifyCheck={ verifyCheck }
         editText={ editText }
         />
-      <Events.ButtonsDown
+      <ButtonsDown
         changeStatus={ changeStatus }
         status={ status }
         editedText={ editedText }
