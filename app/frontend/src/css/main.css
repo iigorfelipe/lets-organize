@@ -25,19 +25,16 @@ body {
 .main-container {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid rgb(25, 0, 255); */
   width: 60%;
 }
 
 .tasks-container {
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 .btnsUp {
-  /* border: 1px solid red; */
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 15px;
@@ -47,14 +44,23 @@ body {
   width: 300px;
 }
 
-.btnsDown input {
-  width: 300px;
-  margin-left: 42px;
-}
-
 .tasks-container div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 2px;
+}
+
+.div-input {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnsDown input {
+  width: 300px;
+}
+
+.edit-container {
+  display: flex;
+  justify-content: flex-end;
 }

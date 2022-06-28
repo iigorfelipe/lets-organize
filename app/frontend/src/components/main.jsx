@@ -150,9 +150,9 @@ const Main = () => {
         verifyCheck={ verifyCheck }
         editText={ editText }
         verifyStatus={ verifyStatus }
-        status={ status }
-      />
+        />
       <Events.ButtonsDown
+        status={ status }
         editedText={ editedText }
         setEditedText={ setEditedText }
         btnConfirmEdit={ btnConfirmEdit }
