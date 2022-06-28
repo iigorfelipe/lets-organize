@@ -30,7 +30,7 @@ class Events {
           </button>
         </div>
         <label htmlFor='select'>Ordenar por:</label>
-        <select id='select'>
+        <select id='select' onChange={ (e) => props.sortList(e.target.value) }>
           <option value='abcd'>Alfabética</option>
           <option value='data'>Data de criação</option>
           <option value='stts'>Status</option>
@@ -91,17 +91,17 @@ class Events {
         <div className='edit-container'>
           <AiOutlineClockCircle
             id='pendingIcon'
-            onClick={ (e) => props.changeStatus(e) }
+            onClick={ (e) => props.changeStatus(e.target.id) }
             className={ props.status.pending }
           />
           <GiProgression
             id='inProgressIcon'
-            onClick={ (e) => props.changeStatus(e) }
+            onClick={ (e) => props.changeStatus(e.target.id) }
             className={ props.status.inProgress }
           />
             <BsCheck2All
               id='readyIcon'
-              onClick={ (e) => props.changeStatus(e) }
+              onClick={ (e) => props.changeStatus(e.target.id) }
               className={ props.status.ready }
             />
           <button

@@ -123,9 +123,8 @@ const Main = () => {
     )
   }
 
-  const changeStatus = (e) => {
+  const changeStatus = (id) => {
     const { index } = editedText
-    const { id } = e.target
 
     list.forEach((item) => {
       if (item.id === index) {
@@ -145,6 +144,42 @@ const Main = () => {
     btnCancelEdit()
   }
 
+  const sortABCD = () => {
+    list.sort((a, b) => {
+      if (a.newText > b.newText) return 1
+      if (a.newText < b.newText) return -1
+
+      setList([...list])
+      return 0
+    })
+  }
+
+  const sortDATA = () => {
+    list.sort((a, b) => {
+      if (a.id > b.id) return 1
+      if (a.id < b.id) return -1
+
+      setList([...list])
+      return 0
+    })
+  }
+
+  const sortSTTS = () => {
+    list.sort((a, b) => {
+      if (a.stts > b.stts) return 1
+      if (a.stts < b.stts) return -1
+
+      setList([...list])
+      return 0
+    })
+  }
+
+  const sortList = (order) => {
+    if (order === 'abcd') sortABCD()
+    if (order === 'data') sortDATA()
+    if (order === 'stts') sortSTTS()
+  }
+
   return (
     <div className='main-container'>
       <Events.ButtonsUp
@@ -154,6 +189,7 @@ const Main = () => {
         deleteText={ deleteText }
         setText={ setText }
         text={ text }
+        sortList={ sortList }
       />
       <Events.Tasks
         list={ list }
