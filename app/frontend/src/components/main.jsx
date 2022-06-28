@@ -3,7 +3,7 @@ import { BsCheck2All } from 'react-icons/bs'
 import { GiProgression } from 'react-icons/gi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import '../css/main.css'
-import Events from './events'
+import Tasks from './tasks'
 import ButtonsUp from './eventos/buttonsUp'
 import ButtonsDown from './eventos/buttonsDown'
 
@@ -145,7 +145,7 @@ const Main = () => {
     setList([...list])
     btnCancelEdit()
   }
-  console.log(list)
+
   const sortABCD = () => {
     list.sort((a, b) => {
       if (a.newText > b.newText) return 1
@@ -185,27 +185,27 @@ const Main = () => {
   return (
     <div className='main-container'>
       <ButtonsUp
+        text={ text }
         btnAdd={ btnAdd }
         addText={ addText }
+        setText={ setText }
+        sortList={ sortList }
         btnDelete={ btnDelete }
         deleteText={ deleteText }
-        setText={ setText }
-        text={ text }
-        sortList={ sortList }
       />
-      <Events.Tasks
+      <Tasks
         list={ list }
-        verifyCheck={ verifyCheck }
         editText={ editText }
+        verifyCheck={ verifyCheck }
         />
       <ButtonsDown
-        changeStatus={ changeStatus }
         status={ status }
-        editedText={ editedText }
-        setEditedText={ setEditedText }
-        btnConfirmEdit={ btnConfirmEdit }
         btnEdit={ btnEdit }
+        editedText={ editedText }
+        changeStatus={ changeStatus }
+        setEditedText={ setEditedText }
         btnCancelEdit={ btnCancelEdit }
+        btnConfirmEdit={ btnConfirmEdit }
       />
     </div>
   )
