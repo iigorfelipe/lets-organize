@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { BsCheck2All } from 'react-icons/bs'
 import { GiProgression } from 'react-icons/gi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
@@ -6,36 +6,21 @@ import '../css/main.css'
 import Tasks from './tasks'
 import ButtonsUp from './eventos/buttonsUp'
 import ButtonsDown from './eventos/buttonsDown'
+import Context from './context'
 
 const Main = () => {
-  const [text, setText] = useState('')
-  const [list, setList] = useState([])
-  const [btnAdd, setBtnAdd] = useState(true)
-  const [btnDelete, setBtnDelete] = useState(true)
-  const [btnEdit, setBtnEdit] = useState(true)
-  const [nodeElement, setNodeElement] = useState([])
-  const [editedText, setEditedText] = useState({
-    textEdited: '',
-    editedInputClass: 'inputOff',
-    btnConfirmClass: 'confirmOff',
-    btnCancelClass: 'cancelOff',
-    index: 0
-  })
-  const [status, setStatus] = useState({
-    pending: 'pendingOff',
-    inProgress: 'inProgressOff',
-    ready: 'readyOff'
-  })
-
-  useEffect(() => {
-    if (text.trim()) setBtnAdd(false)
-    else setBtnAdd(true)
-  })
-
-  useEffect(() => {
-    if (editedText.textEdited.trim()) setBtnEdit(false)
-    else setBtnEdit(true)
-  })
+  const {
+    setText,
+    text,
+    list,
+    setList,
+    setBtnDelete,
+    nodeElement,
+    setNodeElement,
+    editedText,
+    setEditedText,
+    setStatus
+  } = useContext(Context)
 
   const verifyCheck = () => {
     const nodeListOfCheckboxInput = document.querySelectorAll('.checkbox')
@@ -185,12 +170,8 @@ const Main = () => {
   return (
     <div className='main-container'>
       <ButtonsUp
-        text={ text }
-        btnAdd={ btnAdd }
         addText={ addText }
-        setText={ setText }
         sortList={ sortList }
-        btnDelete={ btnDelete }
         deleteText={ deleteText }
       />
       <Tasks
@@ -199,11 +180,7 @@ const Main = () => {
         verifyCheck={ verifyCheck }
         />
       <ButtonsDown
-        status={ status }
-        btnEdit={ btnEdit }
-        editedText={ editedText }
         changeStatus={ changeStatus }
-        setEditedText={ setEditedText }
         btnCancelEdit={ btnCancelEdit }
         btnConfirmEdit={ btnConfirmEdit }
       />

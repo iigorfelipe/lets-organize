@@ -1,54 +1,62 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BsCheck2All } from 'react-icons/bs'
 import { GiProgression } from 'react-icons/gi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import PropTypes from 'prop-types'
+import Context from '../context'
 
 const ButtonsDown = (props) => {
+  const {
+    btnEdit,
+    editedText,
+    setEditedText,
+    status
+  } = useContext(Context)
+
   return (
     <section className='btnsDown'>
       <div className='div-input'>
         <input
           type='text'
-          className={ props.editedText.editedInputClass }
+          className={ editedText.editedInputClass }
           onChange={
-            (e) => props.setEditedText(
+            (e) => setEditedText(
               {
-                ...props.editedText,
+                ...editedText,
                 textEdited: e.target.value,
                 btnConfirmClass: 'confirmOn'
               }
             )
           }
-          value={ props.editedText.textEdited }
+          value={ editedText.textEdited }
         />
       </div>
       <div className='edit-container'>
         <AiOutlineClockCircle
           id='pendingIcon'
           onClick={ (e) => props.changeStatus(e.target.id) }
-          className={ props.status.pending }
+          className={ status.pending }
         />
         <GiProgression
           id='inProgressIcon'
           onClick={ (e) => props.changeStatus(e.target.id) }
-          className={ props.status.inProgress }
+          className={ status.inProgress }
         />
           <BsCheck2All
             id='readyIcon'
             onClick={ (e) => props.changeStatus(e.target.id) }
-            className={ props.status.ready }
+            className={ status.ready }
           />
         <button
-          className={ props.editedText.btnCancelClass }
+          className={ editedText.btnCancelClass }
           onClick={ props.btnCancelEdit }
         >
           Cancelar
         </button>
         <button
-          className={ props.editedText.btnConfirmClass }
+          className={ editedText.btnConfirmClass }
           onClick={ props.btnConfirmEdit }
-          disabled={ props.btnEdit }
+          disabled={ btnEdit }
         >
           Confirmar
         </button>
@@ -58,13 +66,9 @@ const ButtonsDown = (props) => {
 }
 
 ButtonsDown.propTypes = {
-  editedText: PropTypes.object,
-  btnEdit: PropTypes.bool,
   btnConfirmEdit: PropTypes.func,
   btnCancelEdit: PropTypes.func,
-  status: PropTypes.object,
-  changeStatus: PropTypes.func,
-  setEditedText: PropTypes.func
+  changeStatus: PropTypes.func
 }
 
 export default ButtonsDown

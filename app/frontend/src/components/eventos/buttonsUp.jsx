@@ -1,25 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import Context from '../context'
 
 const ButtonsUp = (props) => {
+  const {
+    text,
+    setText,
+    btnAdd,
+    btnDelete
+  } = useContext(Context)
+
   return (
     <section className='btnsUp'>
       <div>
         <input
           type='text'
           placeholder='Digite uma tarefa'
-          onChange={ (e) => props.setText(e.target.value) }
-          value={ props.text }
+          onChange={ (e) => setText(e.target.value) }
+          value={ text }
           maxLength='50'
         />
         <button
-          disabled={ props.btnAdd }
+          disabled={ btnAdd }
           onClick={ props.addText }
         >
           Adicionar
         </button>
         <button
-          disabled={ props.btnDelete }
+          disabled={ btnDelete }
           onClick={ props.deleteText }
         >
           Remover
@@ -36,11 +44,7 @@ const ButtonsUp = (props) => {
 }
 
 ButtonsUp.propTypes = {
-  setText: PropTypes.func,
-  text: PropTypes.string,
   addText: PropTypes.func,
-  btnAdd: PropTypes.bool,
-  btnDelete: PropTypes.bool,
   deleteText: PropTypes.func,
   sortList: PropTypes.func
 }
