@@ -56,6 +56,7 @@ class Events {
               </label>
 
               <div className='btns'>
+                { props.showStatus }
                 <BiEdit
                   onClick={ (e) => props.editText(e, i) }
                   id='editIcon'
@@ -90,17 +91,17 @@ class Events {
         <div className='edit-container'>
           <AiOutlineClockCircle
             id='pendingIcon'
-            onClick={ props.changeStatus }
+            onClick={ (e) => props.changeStatus(e) }
             className={ props.status.pending }
           />
           <GiProgression
             id='inProgressIcon'
-            onClick={ props.changeStatus }
+            onClick={ (e) => props.changeStatus(e) }
             className={ props.status.inProgress }
           />
             <BsCheck2All
               id='readyIcon'
-              onClick={ props.changeStatus }
+              onClick={ (e) => props.changeStatus(e) }
               className={ props.status.ready }
             />
           <button

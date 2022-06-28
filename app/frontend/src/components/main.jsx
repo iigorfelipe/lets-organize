@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { BsCheck2All } from 'react-icons/bs'
+import { GiProgression } from 'react-icons/gi'
+import { AiOutlineClockCircle } from 'react-icons/ai'
 import '../css/main.css'
 import Events from './events'
 
@@ -46,7 +49,8 @@ const Main = () => {
     setList([...list,
       {
         id: list.length,
-        newText: text
+        newText: text,
+        stts: 'inProgress'
       }
     ])
     setText('')
@@ -119,12 +123,31 @@ const Main = () => {
     )
   }
 
-  const changeStatus = () => {
+  const changeStatus = (e) => {
     const { index } = editedText
+    const { id } = e.target
 
-    console.log(index)
+    list.forEach((item) => {
+      if (item.id === index) {
+        if (id === 'pendingIcon') {
+          item.stts = 'pending'
+        }
+        if (id === 'inProgressIcon') {
+          item.stts = 'inProgress'
+        }
+        if (id === 'readyIcon') {
+          item.stts = 'ready'
+        }
+      }
+    })
 
+    setList([...list])
     btnCancelEdit()
+    showStatus()
+  }
+
+  const showStatus = () => {
+    console.log(list)
   }
 
   return (
