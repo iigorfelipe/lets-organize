@@ -90,17 +90,17 @@ class Events {
         <div className='edit-container'>
           <AiOutlineClockCircle
             id='pendingIcon'
-            onClick={ props.verifyStatus }
+            onClick={ props.changeStatus }
             className={ props.status.pending }
           />
           <GiProgression
             id='inProgressIcon'
-            onClick={ props.verifyStatus }
+            onClick={ props.changeStatus }
             className={ props.status.inProgress }
           />
             <BsCheck2All
               id='readyIcon'
-              onClick={ props.verifyStatus }
+              onClick={ props.changeStatus }
               className={ props.status.ready }
             />
           <button

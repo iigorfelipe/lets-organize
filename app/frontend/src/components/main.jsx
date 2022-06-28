@@ -119,17 +119,13 @@ const Main = () => {
     )
   }
 
-  const verifyStatus = (e) => {
+  const changeStatus = () => {
     const { index } = editedText
+
     console.log(index)
+
     btnCancelEdit()
   }
-
-  // const handleStatus = (i, id, on) => {
-  //   console.log(i, id, on)
-  //   setStatus([...status])
-  //   console.log(status)
-  // }
 
   return (
     <div className='main-container'>
@@ -147,7 +143,7 @@ const Main = () => {
         editText={ editText }
         />
       <Events.ButtonsDown
-        verifyStatus={ verifyStatus }
+        changeStatus={ changeStatus }
         status={ status }
         editedText={ editedText }
         setEditedText={ setEditedText }
