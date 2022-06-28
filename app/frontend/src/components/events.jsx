@@ -56,7 +56,7 @@ class Events {
               </label>
 
               <div className='btns'>
-                { props.showStatus }
+                { item.stts }
                 <BiEdit
                   onClick={ (e) => props.editText(e, i) }
                   id='editIcon'

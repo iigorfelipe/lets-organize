@@ -50,7 +50,7 @@ const Main = () => {
       {
         id: list.length,
         newText: text,
-        stts: 'inProgress'
+        stts: ''
       }
     ])
     setText('')
@@ -130,24 +130,19 @@ const Main = () => {
     list.forEach((item) => {
       if (item.id === index) {
         if (id === 'pendingIcon') {
-          item.stts = 'pending'
+          item.stts = <AiOutlineClockCircle />
         }
         if (id === 'inProgressIcon') {
-          item.stts = 'inProgress'
+          item.stts = <GiProgression />
         }
         if (id === 'readyIcon') {
-          item.stts = 'ready'
+          item.stts = <BsCheck2All />
         }
       }
     })
 
     setList([...list])
     btnCancelEdit()
-    showStatus()
-  }
-
-  const showStatus = () => {
-    console.log(list)
   }
 
   return (
