@@ -9,13 +9,17 @@ const Main = () => {
   const [btnDelete, setBtnDelete] = useState(true)
   const [btnEdit, setBtnEdit] = useState(true)
   const [nodeElement, setNodeElement] = useState([])
-  const [status, setStatus] = useState({ ready: 'readyOff' })
   const [editedText, setEditedText] = useState({
     textEdited: '',
     editedInputClass: 'inputOff',
     btnConfirmClass: 'confirmOff',
     btnCancelClass: 'cancelOff',
     index: 0
+  })
+  const [status, setStatus] = useState({
+    pending: 'pendingOff',
+    inProgress: 'inProgressOff',
+    ready: 'readyOff'
   })
 
   useEffect(() => {
@@ -66,6 +70,14 @@ const Main = () => {
             editedInputClass: 'inputOn',
             btnCancelClass: 'cancelOn',
             index: i
+          }
+        )
+        setStatus(
+          {
+            ...status,
+            pending: 'pendingOn',
+            inProgress: 'inProgressOn',
+            ready: 'readyOn'
           }
         )
       }

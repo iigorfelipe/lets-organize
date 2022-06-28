@@ -4,11 +4,21 @@ body {
   background: rgb(63, 56, 56);
 }
 
-.inputOff, .confirmOff, .cancelOff {
+.inputOff,
+.confirmOff,
+.cancelOff,
+.pendingOff,
+.inProgressOff,
+.readyOff {
   display: none;
 }
 
-.inputOn, .confirmOn, .cancelOn {
+.inputOn,
+.confirmOn,
+.cancelOn,
+.pendingOn,
+.inProgressOn,
+.readyOn {
   display: inline;
 }
 
@@ -24,14 +34,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.readyOff {
-  text-decoration: none;
-}
-
-.readyOn {
-  text-decoration: line-through;
 }
 
 .btnsUp {

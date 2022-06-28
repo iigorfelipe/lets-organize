@@ -28,13 +28,6 @@ class Events {
           >
             Remover
           </button>
-          <select
-            onClick={ (e) => props.verifyStatus(e) }
-          >
-            <option value='pendente'>Pendente</option>
-            <option value='andamento'>Em andamento</option>
-            <option value='pronto'>Pronto</option>
-          </select>
         </div>
         <label htmlFor='select'>Ordenar por:</label>
         <select id='select'>
@@ -58,17 +51,14 @@ class Events {
                 className='checkbox'
                 onClick={ props.verifyCheck }
               />
-              <label
-                htmlFor={ i }
-                className={ props.status.ready }
-              >
+              <label htmlFor={ i }>
                 { item.newText }
               </label>
 
               <div className='btns'>
-                <AiOutlineClockCircle />
-                <GiProgression />
-                <BsCheck2All />
+                <AiOutlineClockCircle className={ props.status.pending } />
+                <GiProgression className={ props.status.inProgress } />
+                <BsCheck2All className={ props.status.ready } />
                 <BiEdit onClick={ (e) => props.editText(e, i) } />
               </div>
             </div>
