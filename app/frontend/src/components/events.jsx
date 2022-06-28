@@ -1,5 +1,8 @@
 import React from 'react'
 import { BiEdit } from 'react-icons/bi'
+import { BsCheck2All } from 'react-icons/bs'
+import { GiProgression } from 'react-icons/gi'
+import { AiOutlineClockCircle } from 'react-icons/ai'
 
 class Events {
   ButtonsUp = (props) => {
@@ -25,6 +28,13 @@ class Events {
           >
             Remover
           </button>
+          <select
+            onClick={ (e) => props.verifyStatus(e) }
+          >
+            <option value='pendente'>Pendente</option>
+            <option value='andamento'>Em andamento</option>
+            <option value='pronto'>Pronto</option>
+          </select>
         </div>
         <label htmlFor='select'>Ordenar por:</label>
         <select id='select'>
@@ -48,19 +58,18 @@ class Events {
                 className='checkbox'
                 onClick={ props.verifyCheck }
               />
-              <label htmlFor={ i }>{ item.newText }</label>
+              <label
+                htmlFor={ i }
+                className={ props.status.ready }
+              >
+                { item.newText }
+              </label>
 
               <div className='btns'>
+                <AiOutlineClockCircle />
+                <GiProgression />
+                <BsCheck2All />
                 <BiEdit onClick={ (e) => props.editText(e, i) } />
-                <select
-                  id={ i }
-                  onClick={ (e) => props.handleStatus(e, i) }
-                >
-                  <option value='status'>Status</option>
-                  <option value='pendente'>Pendente</option>
-                  <option value='andamento'>Em andamento</option>
-                  <option value='pronto'>Pronto</option>
-                </select>
               </div>
             </div>
           ))

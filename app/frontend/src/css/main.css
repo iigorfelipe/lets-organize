@@ -26,6 +26,14 @@ body {
   width: 100%;
 }
 
+.readyOff {
+  text-decoration: none;
+}
+
+.readyOn {
+  text-decoration: line-through;
+}
+
 .btnsUp {
   /* border: 1px solid red; */
   display: flex;

@@ -4,6 +4,12 @@ import Events from './events'
 
 const Main = () => {
   const [text, setText] = useState('')
+  const [list, setList] = useState([])
+  const [btnAdd, setBtnAdd] = useState(true)
+  const [btnDelete, setBtnDelete] = useState(true)
+  const [btnEdit, setBtnEdit] = useState(true)
+  const [nodeElement, setNodeElement] = useState([])
+  const [status, setStatus] = useState({ ready: 'readyOff' })
   const [editedText, setEditedText] = useState({
     textEdited: '',
     editedInputClass: 'inputOff',
@@ -11,11 +17,6 @@ const Main = () => {
     btnCancelClass: 'cancelOff',
     index: 0
   })
-  const [list, setList] = useState([])
-  const [btnAdd, setBtnAdd] = useState(true)
-  const [btnDelete, setBtnDelete] = useState(true)
-  const [btnEdit, setBtnEdit] = useState(true)
-  const [nodeElement, setNodeElement] = useState([])
 
   useEffect(() => {
     if (text.trim()) setBtnAdd(false)
@@ -100,7 +101,7 @@ const Main = () => {
     )
   }
 
-  const handleStatus = (e, i) => {
+  const verifyStatus = (e, i) => {
     list.forEach((item) => {
       if (item.id === i) {
         if (e.target.value === 'pendente') {
@@ -110,10 +111,16 @@ const Main = () => {
           console.log(i, 'andamento')
         }
         if (e.target.value === 'pronto') {
-          console.log(i, 'pronto')
+          handleStatus(i, item.id, 'readyOn')
         }
       }
     })
+  }
+
+  const handleStatus = (i, id, on) => {
+    console.log(i, id, on)
+    setStatus([...status])
+    console.log(status)
   }
 
   return (
@@ -130,7 +137,8 @@ const Main = () => {
         list={ list }
         verifyCheck={ verifyCheck }
         editText={ editText }
-        handleStatus={ handleStatus }
+        verifyStatus={ verifyStatus }
+        status={ status }
       />
       <Events.ButtonsDown
         editedText={ editedText }
