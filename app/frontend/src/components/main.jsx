@@ -122,6 +122,7 @@ const Main = () => {
   const verifyStatus = (e) => {
     const { index } = editedText
     console.log(index)
+    btnCancelEdit()
   }
 
   // const handleStatus = (i, id, on) => {
