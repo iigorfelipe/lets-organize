@@ -4,6 +4,10 @@ body {
   background: rgb(63, 56, 56);
 }
 
+button {
+  cursor: pointer;
+}
+
 .inputOff,
 .confirmOff,
 .cancelOff,
@@ -63,4 +67,12 @@ body {
 .edit-container {
   display: flex;
   justify-content: flex-end;
+}
+
+#editIcon,
+#pendingIcon,
+#inProgressIcon,
+#readyIcon {
+  font-size: large;
+  cursor: pointer;
 }

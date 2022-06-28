@@ -113,27 +113,16 @@ const Main = () => {
     )
   }
 
-  const verifyStatus = (e, i) => {
-    list.forEach((item) => {
-      if (item.id === i) {
-        if (e.target.value === 'pendente') {
-          console.log(i, 'pendente')
-        }
-        if (e.target.value === 'andamento') {
-          console.log(i, 'andamento')
-        }
-        if (e.target.value === 'pronto') {
-          handleStatus(i, item.id, 'readyOn')
-        }
-      }
-    })
+  const verifyStatus = (e) => {
+    const { index } = editedText
+    console.log(index)
   }
 
-  const handleStatus = (i, id, on) => {
-    console.log(i, id, on)
-    setStatus([...status])
-    console.log(status)
-  }
+  // const handleStatus = (i, id, on) => {
+  //   console.log(i, id, on)
+  //   setStatus([...status])
+  //   console.log(status)
+  // }
 
   return (
     <div className='main-container'>
@@ -149,9 +138,9 @@ const Main = () => {
         list={ list }
         verifyCheck={ verifyCheck }
         editText={ editText }
-        verifyStatus={ verifyStatus }
         />
       <Events.ButtonsDown
+        verifyStatus={ verifyStatus }
         status={ status }
         editedText={ editedText }
         setEditedText={ setEditedText }
