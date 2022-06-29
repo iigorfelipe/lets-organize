@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import { BiEdit } from 'react-icons/bi'
 import Context from './providers/context'
+import { resetDisplay } from './helpers/cancelEdit'
 
 const Tasks = (props) => {
   const {
     list,
-    setStatus,
-    editedText,
+    display,
     setBtnDelete,
-    setEditedText,
+    setDisplay,
     setNodeElement
   } = useContext(Context)
 
@@ -19,44 +19,21 @@ const Tasks = (props) => {
 
     setNodeElement(arrayOfCheckboxInput)
     setBtnDelete(uncheckeds)
-    btnCancelEdit()
-  }
-
-  const btnCancelEdit = () => {
-    setEditedText(
-      {
-        ...editedText,
-        btnCancelClass: 'cancelOff',
-        editedInputClass: 'inputOff',
-        btnConfirmClass: 'confirmOff',
-        textEdited: ''
-      }
-    )
-    setStatus(
-      {
-        ready: 'readyOff',
-        pending: 'pendingOff',
-        inProgress: 'inProgressOff'
-      }
-    )
+    setDisplay(resetDisplay(display))
   }
 
   const editText = (_e, i) => {
     list.forEach((item) => {
       if (item.id === i) {
-        setEditedText(
+        setDisplay(
           {
-            ...editedText,
-            btnCancelClass: 'cancelOn',
-            editedInputClass: 'inputOn',
-            index: i
-          }
-        )
-        setStatus(
-          {
+            ...display,
+            index: i,
             ready: 'readyOn',
             pending: 'pendingOn',
-            inProgress: 'inProgressOn'
+            inProgress: 'inProgressOn',
+            btnCancelClass: 'cancelOn',
+            editedInputClass: 'inputOn'
           }
         )
       }

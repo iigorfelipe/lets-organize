@@ -9,17 +9,15 @@ const Provider = ({ children }) => {
   const [btnEdit, setBtnEdit] = useState(true)
   const [btnDelete, setBtnDelete] = useState(true)
   const [nodeElement, setNodeElement] = useState([])
-  const [editedText, setEditedText] = useState({
+  const [display, setDisplay] = useState({
     index: 0,
     textEdited: '',
+    ready: 'readyOff',
+    pending: 'pendingOff',
+    inProgress: 'inProgressOff',
     btnCancelClass: 'cancelOff',
     editedInputClass: 'inputOff',
     btnConfirmClass: 'confirmOff'
-  })
-  const [status, setStatus] = useState({
-    ready: 'readyOff',
-    pending: 'pendingOff',
-    inProgress: 'inProgressOff'
   })
 
   useEffect(() => {
@@ -28,7 +26,7 @@ const Provider = ({ children }) => {
   })
 
   useEffect(() => {
-    if (editedText.textEdited.trim()) setBtnEdit(false)
+    if (display.textEdited.trim()) setBtnEdit(false)
     else setBtnEdit(true)
   })
 
@@ -41,14 +39,12 @@ const Provider = ({ children }) => {
         setList,
         btnAdd,
         setBtnAdd,
-        status,
-        setStatus,
         btnEdit,
         setBtnEdit,
         btnDelete,
         setBtnDelete,
-        editedText,
-        setEditedText,
+        display,
+        setDisplay,
         nodeElement,
         setNodeElement
       } }

@@ -3,20 +3,19 @@ import { BsCheck2All } from 'react-icons/bs'
 import { GiProgression } from 'react-icons/gi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import Context from '../providers/context'
+import { resetDisplay } from '../helpers/cancelEdit'
 
 const ButtonsDown = (props) => {
   const {
     list,
-    status,
     setList,
     btnEdit,
-    setStatus,
-    editedText,
-    setEditedText
+    display,
+    setDisplay
   } = useContext(Context)
 
   const changeStatus = (id) => {
-    const { index } = editedText
+    const { index } = display
 
     list.forEach((item) => {
       if (item.id === index) {
@@ -32,43 +31,24 @@ const ButtonsDown = (props) => {
       }
     })
     setList([...list])
-    btnCancelEdit()
-  }
-
-  const btnCancelEdit = () => {
-    setEditedText(
-      {
-        ...editedText,
-        btnCancelClass: 'cancelOff',
-        editedInputClass: 'inputOff',
-        btnConfirmClass: 'confirmOff',
-        textEdited: ''
-      }
-    )
-    setStatus(
-      {
-        ready: 'readyOff',
-        pending: 'pendingOff',
-        inProgress: 'inProgressOff'
-      }
-    )
+    setDisplay(resetDisplay(display))
   }
 
   const btnConfirmEdit = () => {
-    const { index } = editedText
+    const { index } = display
 
     list.forEach((item) => {
       if (item.id === index) {
         list.splice(index, 1,
           {
             id: item.id,
-            newText: editedText.textEdited
+            newText: display.textEdited
           }
         )
       }
     })
     setList([...list])
-    btnCancelEdit()
+    setDisplay(resetDisplay(display))
   }
 
   return (
@@ -76,45 +56,45 @@ const ButtonsDown = (props) => {
       <div className='div-input'>
         <input
           type='text'
-          className={ editedText.editedInputClass }
+          className={ display.editedInputClass }
           onChange={
-            (e) => setEditedText(
+            (e) => setDisplay(
               {
-                ...editedText,
+                ...display,
                 textEdited: e.target.value,
                 btnConfirmClass: 'confirmOn'
               }
             )
           }
-          value={ editedText.textEdited }
+          value={ display.textEdited }
         />
       </div>
       <div className='edit-container'>
         <AiOutlineClockCircle
           id='pendingIcon'
-          className={ status.pending }
+          className={ display.pending }
           onClick={ (e) => changeStatus(e.target.id) }
         />
         <GiProgression
           id='inProgressIcon'
-          className={ status.inProgress }
+          className={ display.inProgress }
           onClick={ (e) => changeStatus(e.target.id) }
         />
           <BsCheck2All
             id='readyIcon'
-            className={ status.ready }
+            className={ display.ready }
             onClick={ (e) => changeStatus(e.target.id) }
           />
         <button
-          onClick={ btnCancelEdit }
-          className={ editedText.btnCancelClass }
+          onClick={ (e) => setDisplay(resetDisplay(display)) }
+          className={ display.btnCancelClass }
         >
           Cancelar
         </button>
         <button
           disabled={ btnEdit }
           onClick={ btnConfirmEdit }
-          className={ editedText.btnConfirmClass }
+          className={ display.btnConfirmClass }
         >
           Confirmar
         </button>

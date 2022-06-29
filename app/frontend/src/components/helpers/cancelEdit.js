@@ -1,6 +1,6 @@
-export const resetClass = (editedText) => {
+export const resetDisplay = (display) => {
   return {
-    ...editedText,
+    ...display,
     textEdited: '',
     ready: 'readyOff',
     pending: 'pendingOff',
