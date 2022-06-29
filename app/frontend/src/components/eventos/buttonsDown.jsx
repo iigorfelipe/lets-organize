@@ -7,10 +7,10 @@ import Context from '../providers/context'
 
 const ButtonsDown = (props) => {
   const {
+    status,
     btnEdit,
     editedText,
-    setEditedText,
-    status
+    setEditedText
   } = useContext(Context)
 
   return (
@@ -44,19 +44,19 @@ const ButtonsDown = (props) => {
         />
           <BsCheck2All
             id='readyIcon'
-            onClick={ (e) => props.changeStatus(e.target.id) }
             className={ status.ready }
+            onClick={ (e) => props.changeStatus(e.target.id) }
           />
         <button
-          className={ editedText.btnCancelClass }
           onClick={ props.btnCancelEdit }
+          className={ editedText.btnCancelClass }
         >
           Cancelar
         </button>
         <button
-          className={ editedText.btnConfirmClass }
-          onClick={ props.btnConfirmEdit }
           disabled={ btnEdit }
+          onClick={ props.btnConfirmEdit }
+          className={ editedText.btnConfirmClass }
         >
           Confirmar
         </button>
@@ -66,9 +66,9 @@ const ButtonsDown = (props) => {
 }
 
 ButtonsDown.propTypes = {
-  btnConfirmEdit: PropTypes.func,
+  changeStatus: PropTypes.func,
   btnCancelEdit: PropTypes.func,
-  changeStatus: PropTypes.func
+  btnConfirmEdit: PropTypes.func
 }
 
 export default ButtonsDown

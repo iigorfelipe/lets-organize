@@ -5,8 +5,8 @@ import Context from '../providers/context'
 const ButtonsUp = (props) => {
   const {
     text,
-    setText,
     btnAdd,
+    setText,
     btnDelete
   } = useContext(Context)
 
@@ -15,10 +15,10 @@ const ButtonsUp = (props) => {
       <div>
         <input
           type='text'
+          maxLength='50'
+          value={ text }
           placeholder='Digite uma tarefa'
           onChange={ (e) => setText(e.target.value) }
-          value={ text }
-          maxLength='50'
         />
         <button
           disabled={ btnAdd }
@@ -45,8 +45,8 @@ const ButtonsUp = (props) => {
 
 ButtonsUp.propTypes = {
   addText: PropTypes.func,
-  deleteText: PropTypes.func,
-  sortList: PropTypes.func
+  sortList: PropTypes.func,
+  deleteText: PropTypes.func
 }
 
 export default ButtonsUp

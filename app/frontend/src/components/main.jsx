@@ -10,16 +10,16 @@ import Context from './providers/context'
 
 const Main = () => {
   const {
-    setText,
     text,
     list,
     setList,
-    setBtnDelete,
-    nodeElement,
-    setNodeElement,
+    setText,
+    setStatus,
     editedText,
+    nodeElement,
+    setBtnDelete,
     setEditedText,
-    setStatus
+    setNodeElement
   } = useContext(Context)
 
   const verifyCheck = () => {
@@ -58,16 +58,16 @@ const Main = () => {
         setEditedText(
           {
             ...editedText,
-            editedInputClass: 'inputOn',
             btnCancelClass: 'cancelOn',
+            editedInputClass: 'inputOn',
             index: i
           }
         )
         setStatus(
           {
+            ready: 'readyOn',
             pending: 'pendingOn',
-            inProgress: 'inProgressOn',
-            ready: 'readyOn'
+            inProgress: 'inProgressOn'
           }
         )
       }
@@ -95,17 +95,17 @@ const Main = () => {
     setEditedText(
       {
         ...editedText,
+        btnCancelClass: 'cancelOff',
         editedInputClass: 'inputOff',
         btnConfirmClass: 'confirmOff',
-        btnCancelClass: 'cancelOff',
         textEdited: ''
       }
     )
     setStatus(
       {
+        ready: 'readyOff',
         pending: 'pendingOff',
-        inProgress: 'inProgressOff',
-        ready: 'readyOff'
+        inProgress: 'inProgressOff'
       }
     )
   }
@@ -115,18 +115,17 @@ const Main = () => {
 
     list.forEach((item) => {
       if (item.id === index) {
-        if (id === 'pendingIcon') {
-          item.stts = <AiOutlineClockCircle />
+        if (id === 'readyIcon') {
+          item.stts = <BsCheck2All />
         }
         if (id === 'inProgressIcon') {
           item.stts = <GiProgression />
         }
-        if (id === 'readyIcon') {
-          item.stts = <BsCheck2All />
+        if (id === 'pendingIcon') {
+          item.stts = <AiOutlineClockCircle />
         }
       }
     })
-
     setList([...list])
     btnCancelEdit()
   }

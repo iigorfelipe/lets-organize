@@ -10,16 +10,16 @@ const Provider = ({ children }) => {
   const [btnDelete, setBtnDelete] = useState(true)
   const [nodeElement, setNodeElement] = useState([])
   const [editedText, setEditedText] = useState({
+    index: 0,
     textEdited: '',
-    editedInputClass: 'inputOff',
-    btnConfirmClass: 'confirmOff',
     btnCancelClass: 'cancelOff',
-    index: 0
+    editedInputClass: 'inputOff',
+    btnConfirmClass: 'confirmOff'
   })
   const [status, setStatus] = useState({
+    ready: 'readyOff',
     pending: 'pendingOff',
-    inProgress: 'inProgressOff',
-    ready: 'readyOff'
+    inProgress: 'inProgressOff'
   })
 
   useEffect(() => {
@@ -41,16 +41,16 @@ const Provider = ({ children }) => {
         setList,
         btnAdd,
         setBtnAdd,
+        status,
+        setStatus,
         btnEdit,
         setBtnEdit,
         btnDelete,
         setBtnDelete,
-        nodeElement,
-        setNodeElement,
         editedText,
         setEditedText,
-        status,
-        setStatus
+        nodeElement,
+        setNodeElement
       } }
     >
       { children }
