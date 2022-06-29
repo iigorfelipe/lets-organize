@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { BiEdit } from 'react-icons/bi'
 import Context from './providers/context'
-import { resetDisplay } from './helpers/cancelEdit'
+import { resetDisplay, activeDisplay } from './helpers/cancelEdit'
 
 const Tasks = (props) => {
   const {
@@ -25,17 +25,7 @@ const Tasks = (props) => {
   const editText = (_e, i) => {
     list.forEach((item) => {
       if (item.id === i) {
-        setDisplay(
-          {
-            ...display,
-            index: i,
-            ready: 'readyOn',
-            pending: 'pendingOn',
-            inProgress: 'inProgressOn',
-            btnCancelClass: 'cancelOn',
-            editedInputClass: 'inputOn'
-          }
-        )
+        setDisplay(activeDisplay(display, i))
       }
     })
   }
