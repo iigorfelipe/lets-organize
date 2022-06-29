@@ -3,7 +3,7 @@ import { BsCheck2All } from 'react-icons/bs'
 import { GiProgression } from 'react-icons/gi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import Context from '../providers/context'
-import { resetDisplay } from '../helpers/cancelEdit'
+import { resetDisplay } from '../helpers/display'
 
 const ButtonsDown = (props) => {
   const {

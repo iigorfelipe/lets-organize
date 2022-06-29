@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import { BiEdit } from 'react-icons/bi'
 import Context from './providers/context'
-import { resetDisplay, activeDisplay } from './helpers/cancelEdit'
+import { resetDisplay, activeDisplay } from './helpers/display'
+import { allChecked } from './helpers/checkbox'
 
-const Tasks = (props) => {
+const Tasks = () => {
   const {
     list,
     display,
@@ -12,13 +13,11 @@ const Tasks = (props) => {
     setNodeElement
   } = useContext(Context)
 
-  const verifyCheck = () => {
-    const nodeListOfCheckboxInput = document.querySelectorAll('.checkbox')
-    const arrayOfCheckboxInput = [...nodeListOfCheckboxInput]
-    const uncheckeds = arrayOfCheckboxInput.every(item => !item.checked)
+  const handleCheck = () => {
+    const uncheckeds = allChecked().every(item => !item.checked)
 
-    setNodeElement(arrayOfCheckboxInput)
     setBtnDelete(uncheckeds)
+    setNodeElement(allChecked())
     setDisplay(resetDisplay(display))
   }
 
@@ -39,7 +38,7 @@ const Tasks = (props) => {
               id={ i }
               type='checkbox'
               className='checkbox'
-              onClick={ verifyCheck }
+              onClick={ handleCheck }
             />
             <label htmlFor={ i }>
               { item.newText }
