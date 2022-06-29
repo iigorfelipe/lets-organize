@@ -8,8 +8,10 @@ const Tasks = () => {
   const {
     list,
     display,
-    setBtnDelete,
+    checked,
+    setChecked,
     setDisplay,
+    setBtnDelete,
     setNodeElement
   } = useContext(Context)
 
@@ -19,6 +21,21 @@ const Tasks = () => {
     setBtnDelete(uncheckeds)
     setNodeElement(allChecked())
     setDisplay(resetDisplay(display))
+  }
+
+  const handleChecked = (e, i) => {
+    const index = checked.indexOf(i)
+
+    if (index === -1) checked.push(i)
+    else checked.splice(index, 1)
+
+    setChecked([...checked])
+
+    list.forEach((item) => {
+      if (item.id === i) {
+        item.check = checked.includes(i)
+      }
+    })
   }
 
   const editText = (_e, i) => {
@@ -39,6 +56,7 @@ const Tasks = () => {
               type='checkbox'
               className='checkbox'
               onClick={ handleCheck }
+              onChange={(e) => handleChecked(e, i)}
             />
             <label htmlFor={ i }>
               { item.newText }

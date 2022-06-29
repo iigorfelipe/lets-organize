@@ -8,6 +8,7 @@ const ButtonsUp = (props) => {
     btnAdd,
     setText,
     setList,
+    setList2,
     btnDelete,
     nodeElement,
     setBtnDelete
@@ -18,7 +19,8 @@ const ButtonsUp = (props) => {
       {
         id: list.length,
         newText: text,
-        stts: ''
+        stts: '',
+        check: false
       }
     ])
     setText('')
@@ -31,6 +33,15 @@ const ButtonsUp = (props) => {
       }
     })
     setBtnDelete(true)
+    removeText()
+  }
+
+  const removeText = () => {
+    const allFalse = list.filter((item) => !item.check)
+    setList2(allFalse)
+
+    // list.filter(item => item.check === true)
+    //   .forEach(item => list.splice(list.indexOf(item), 1))
   }
 
   const sortABCD = () => {

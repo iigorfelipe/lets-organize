@@ -5,7 +5,9 @@ import PropTypes from 'prop-types'
 const Provider = ({ children }) => {
   const [text, setText] = useState('')
   const [list, setList] = useState([])
+  const [list2, setList2] = useState([])
   const [btnAdd, setBtnAdd] = useState(true)
+  const [checked, setChecked] = useState([])
   const [btnEdit, setBtnEdit] = useState(true)
   const [btnDelete, setBtnDelete] = useState(true)
   const [nodeElement, setNodeElement] = useState([])
@@ -37,8 +39,12 @@ const Provider = ({ children }) => {
         setText,
         list,
         setList,
+        list2,
+        setList2,
         btnAdd,
         setBtnAdd,
+        checked,
+        setChecked,
         btnEdit,
         setBtnEdit,
         btnDelete,
