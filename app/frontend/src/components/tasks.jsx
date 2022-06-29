@@ -1,10 +1,67 @@
 import React, { useContext } from 'react'
 import { BiEdit } from 'react-icons/bi'
-import PropTypes from 'prop-types'
 import Context from './providers/context'
 
 const Tasks = (props) => {
-  const { list } = useContext(Context)
+  const {
+    list,
+    setStatus,
+    editedText,
+    setBtnDelete,
+    setEditedText,
+    setNodeElement
+  } = useContext(Context)
+
+  const verifyCheck = () => {
+    const nodeListOfCheckboxInput = document.querySelectorAll('.checkbox')
+    const arrayOfCheckboxInput = [...nodeListOfCheckboxInput]
+    const uncheckeds = arrayOfCheckboxInput.every(item => !item.checked)
+
+    setNodeElement(arrayOfCheckboxInput)
+    setBtnDelete(uncheckeds)
+    btnCancelEdit()
+  }
+
+  const btnCancelEdit = () => {
+    setEditedText(
+      {
+        ...editedText,
+        btnCancelClass: 'cancelOff',
+        editedInputClass: 'inputOff',
+        btnConfirmClass: 'confirmOff',
+        textEdited: ''
+      }
+    )
+    setStatus(
+      {
+        ready: 'readyOff',
+        pending: 'pendingOff',
+        inProgress: 'inProgressOff'
+      }
+    )
+  }
+
+  const editText = (_e, i) => {
+    list.forEach((item) => {
+      if (item.id === i) {
+        setEditedText(
+          {
+            ...editedText,
+            btnCancelClass: 'cancelOn',
+            editedInputClass: 'inputOn',
+            index: i
+          }
+        )
+        setStatus(
+          {
+            ready: 'readyOn',
+            pending: 'pendingOn',
+            inProgress: 'inProgressOn'
+          }
+        )
+      }
+    })
+  }
 
   return (
     <div className='tasks-container'>
@@ -15,7 +72,7 @@ const Tasks = (props) => {
               id={ i }
               type='checkbox'
               className='checkbox'
-              onClick={ props.verifyCheck }
+              onClick={ verifyCheck }
             />
             <label htmlFor={ i }>
               { item.newText }
@@ -24,7 +81,7 @@ const Tasks = (props) => {
             <div className='btns'>
               { item.stts }
               <BiEdit
-                onClick={ (e) => props.editText(e, i) }
+                onClick={ (e) => editText(e, i) }
                 id='editIcon'
               />
             </div>
@@ -33,11 +90,6 @@ const Tasks = (props) => {
       }
     </div>
   )
-}
-
-Tasks.propTypes = {
-  editText: PropTypes.func,
-  verifyCheck: PropTypes.func
 }
 
 export default Tasks

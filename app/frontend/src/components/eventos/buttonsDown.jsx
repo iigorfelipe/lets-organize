@@ -2,16 +2,74 @@ import React, { useContext } from 'react'
 import { BsCheck2All } from 'react-icons/bs'
 import { GiProgression } from 'react-icons/gi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
-import PropTypes from 'prop-types'
 import Context from '../providers/context'
 
 const ButtonsDown = (props) => {
   const {
+    list,
     status,
+    setList,
     btnEdit,
+    setStatus,
     editedText,
     setEditedText
   } = useContext(Context)
+
+  const changeStatus = (id) => {
+    const { index } = editedText
+
+    list.forEach((item) => {
+      if (item.id === index) {
+        if (id === 'readyIcon') {
+          item.stts = <BsCheck2All />
+        }
+        if (id === 'inProgressIcon') {
+          item.stts = <GiProgression />
+        }
+        if (id === 'pendingIcon') {
+          item.stts = <AiOutlineClockCircle />
+        }
+      }
+    })
+    setList([...list])
+    btnCancelEdit()
+  }
+
+  const btnCancelEdit = () => {
+    setEditedText(
+      {
+        ...editedText,
+        btnCancelClass: 'cancelOff',
+        editedInputClass: 'inputOff',
+        btnConfirmClass: 'confirmOff',
+        textEdited: ''
+      }
+    )
+    setStatus(
+      {
+        ready: 'readyOff',
+        pending: 'pendingOff',
+        inProgress: 'inProgressOff'
+      }
+    )
+  }
+
+  const btnConfirmEdit = () => {
+    const { index } = editedText
+
+    list.forEach((item) => {
+      if (item.id === index) {
+        list.splice(index, 1,
+          {
+            id: item.id,
+            newText: editedText.textEdited
+          }
+        )
+      }
+    })
+    setList([...list])
+    btnCancelEdit()
+  }
 
   return (
     <section className='btnsDown'>
@@ -34,28 +92,28 @@ const ButtonsDown = (props) => {
       <div className='edit-container'>
         <AiOutlineClockCircle
           id='pendingIcon'
-          onClick={ (e) => props.changeStatus(e.target.id) }
           className={ status.pending }
+          onClick={ (e) => changeStatus(e.target.id) }
         />
         <GiProgression
           id='inProgressIcon'
-          onClick={ (e) => props.changeStatus(e.target.id) }
           className={ status.inProgress }
+          onClick={ (e) => changeStatus(e.target.id) }
         />
           <BsCheck2All
             id='readyIcon'
             className={ status.ready }
-            onClick={ (e) => props.changeStatus(e.target.id) }
+            onClick={ (e) => changeStatus(e.target.id) }
           />
         <button
-          onClick={ props.btnCancelEdit }
+          onClick={ btnCancelEdit }
           className={ editedText.btnCancelClass }
         >
           Cancelar
         </button>
         <button
           disabled={ btnEdit }
-          onClick={ props.btnConfirmEdit }
+          onClick={ btnConfirmEdit }
           className={ editedText.btnConfirmClass }
         >
           Confirmar
@@ -63,12 +121,6 @@ const ButtonsDown = (props) => {
       </div>
     </section>
   )
-}
-
-ButtonsDown.propTypes = {
-  changeStatus: PropTypes.func,
-  btnCancelEdit: PropTypes.func,
-  btnConfirmEdit: PropTypes.func
 }
 
 export default ButtonsDown
