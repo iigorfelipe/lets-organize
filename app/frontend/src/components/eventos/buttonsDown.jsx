@@ -3,7 +3,7 @@ import { BsCheck2All } from 'react-icons/bs'
 import { GiProgression } from 'react-icons/gi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import PropTypes from 'prop-types'
-import Context from '../context'
+import Context from '../providers/context'
 
 const ButtonsDown = (props) => {
   const {

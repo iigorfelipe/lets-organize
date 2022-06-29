@@ -6,7 +6,7 @@ import '../css/main.css'
 import Tasks from './tasks'
 import ButtonsUp from './eventos/buttonsUp'
 import ButtonsDown from './eventos/buttonsDown'
-import Context from './context'
+import Context from './providers/context'
 
 const Main = () => {
   const {

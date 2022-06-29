@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BiEdit } from 'react-icons/bi'
 import PropTypes from 'prop-types'
+import Context from './providers/context'
 
 const Tasks = (props) => {
+  const { list } = useContext(Context)
+
   return (
     <div className='tasks-container'>
       {
-        props.list.map((item, i) => (
+        list.map((item, i) => (
           <div key={ i }>
             <input
               id={ i }
@@ -34,8 +37,7 @@ const Tasks = (props) => {
 
 Tasks.propTypes = {
   editText: PropTypes.func,
-  verifyCheck: PropTypes.func,
-  list: PropTypes.array
+  verifyCheck: PropTypes.func
 }
 
 export default Tasks
