@@ -5,7 +5,7 @@ import { AiOutlineClockCircle } from 'react-icons/ai'
 import Context from '../providers/context'
 import { resetDisplay } from '../helpers/display'
 
-const ButtonsDown = (props) => {
+const ButtonsDown = () => {
   const {
     list,
     setList,

@@ -9,7 +9,6 @@ const Provider = ({ children }) => {
   const [btnEdit, setBtnEdit] = useState(true)
   const [nodeElement, setNodeElement] = useState([])
   const [display, setDisplay] = useState({
-    index: 0,
     textEdited: '',
     ready: 'readyOff',
     pending: 'pendingOff',

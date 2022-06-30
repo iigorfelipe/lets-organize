@@ -13,7 +13,7 @@ const ButtonsUp = () => {
   const addText = () => {
     setList([...list,
       {
-        id: list.length + 1,
+        id: list.length,
         newText: text,
         stts: '',
         check: false

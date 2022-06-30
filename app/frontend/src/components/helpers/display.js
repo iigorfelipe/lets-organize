@@ -11,10 +11,10 @@ export const resetDisplay = (display) => {
   }
 }
 
-export const activeDisplay = (display, i) => {
+export const activeDisplay = (display, id) => {
   return {
     ...display,
-    index: i,
+    index: id,
     ready: 'readyOn',
     pending: 'pendingOn',
     inProgress: 'inProgressOn',

@@ -18,16 +18,15 @@ const Tasks = () => {
     setDisplay(resetDisplay(display))
   }
 
-  const editText = (_e, i) => {
+  const editText = (id) => {
     list.forEach((item) => {
-      if (item.id === i) {
-        setDisplay(activeDisplay(display, i))
+      if (item.id === id) {
+        setDisplay(activeDisplay(display, id))
       }
     })
   }
 
-  const deleteText = (e, id) => {
-    console.log('clicou', id)
+  const deleteText = (id) => {
     const newList = list.filter((item) => item.id !== id)
 
     setList(newList)
@@ -51,11 +50,11 @@ const Tasks = () => {
             <div className='btns'>
               { item.stts }
               <BiEdit
-                onClick={ (e) => editText(e, i) }
+                onClick={ () => editText(item.id) }
                 id='editIcon'
               />
               <BiTrash
-                onClick={ (e) => deleteText(e, item.id) }
+                onClick={ () => deleteText(item.id) }
                 id='editIcon'
               />
             </div>
