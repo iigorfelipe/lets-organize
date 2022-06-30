@@ -7,7 +7,6 @@ const Provider = ({ children }) => {
   const [list, setList] = useState([])
   const [btnAdd, setBtnAdd] = useState(true)
   const [btnEdit, setBtnEdit] = useState(true)
-  const [btnDelete, setBtnDelete] = useState(true)
   const [nodeElement, setNodeElement] = useState([])
   const [display, setDisplay] = useState({
     index: 0,
@@ -41,8 +40,6 @@ const Provider = ({ children }) => {
         setBtnAdd,
         btnEdit,
         setBtnEdit,
-        btnDelete,
-        setBtnDelete,
         display,
         setDisplay,
         nodeElement,

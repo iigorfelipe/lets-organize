@@ -7,31 +7,19 @@ const ButtonsUp = () => {
     list,
     btnAdd,
     setText,
-    setList,
-    btnDelete,
-    nodeElement,
-    setBtnDelete
+    setList
   } = useContext(Context)
 
   const addText = () => {
     setList([...list,
       {
-        id: list.length,
+        id: list.length + 1,
         newText: text,
         stts: '',
         check: false
       }
     ])
     setText('')
-  }
-
-  const deleteText = () => {
-    nodeElement.forEach((item) => {
-      if (item.checked) {
-        item.parentNode.remove()
-      }
-    })
-    setBtnDelete(true)
   }
 
   return (
@@ -49,12 +37,6 @@ const ButtonsUp = () => {
           onClick={ addText }
         >
           Adicionar
-        </button>
-        <button
-          disabled={ btnDelete }
-          onClick={ deleteText }
-        >
-          Remover
         </button>
       </div>
     </section>
