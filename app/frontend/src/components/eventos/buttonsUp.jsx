@@ -22,13 +22,13 @@ const ButtonsUp = () => {
       {
         id: newId,
         newText: text,
-        stts: '',
+        stts: { id: 0, icon: '' },
         check: false
       }
     ])
     setText('')
   }
-
+  console.log(list)
   const deleteSelected = () => {
     const newList = list.filter((item) => !item.check)
     setList(newList)
@@ -59,15 +59,15 @@ const ButtonsUp = () => {
         else return 0
       })
     }
-    // if (order === 'stts') {
-    //   newList.sort((a, b) => {
-    //     if (a.stts > b.stts) return 1
-    //     if (a.stts < b.stts) return -1
+    if (order === 'stts') {
+      newList.sort((a, b) => {
+        if (a.stts.id > b.stts.id) return 1
+        if (a.stts.id < b.stts.id) return -1
 
-    //     setList([...newList])
-    //     return 0
-    //   })
-    // }
+        setList([...newList])
+        return 0
+      })
+    }
 
     setList([...newList])
   }

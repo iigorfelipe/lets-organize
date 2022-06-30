@@ -20,13 +20,16 @@ const ButtonsDown = () => {
     list.forEach((item) => {
       if (item.id === index) {
         if (id === 'readyIcon') {
-          item.stts = <BsCheck2All />
+          item.stts.icon = <BsCheck2All />
+          item.stts.id = 1
         }
         if (id === 'inProgressIcon') {
-          item.stts = <GiProgression />
+          item.stts.icon = <GiProgression />
+          item.stts.id = 2
         }
         if (id === 'pendingIcon') {
-          item.stts = <AiOutlineClockCircle />
+          item.stts.icon = <AiOutlineClockCircle />
+          item.stts.id = 3
         }
       }
     })

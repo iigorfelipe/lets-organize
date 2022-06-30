@@ -49,7 +49,7 @@ const Tasks = () => {
             </label>
 
             <div className='btns'>
-              { item.stts }
+              { item.stts.icon }
               <BiEdit
                 onClick={ () => editTask(item.id) }
                 id='editIcon'
