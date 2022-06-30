@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import Context from '../providers/context'
+import { CgPlayListRemove } from 'react-icons/cg'
 
 const ButtonsUp = () => {
   const {
@@ -7,7 +8,9 @@ const ButtonsUp = () => {
     list,
     btnAdd,
     setText,
-    setList
+    setList,
+    display,
+    setDisplay
   } = useContext(Context)
 
   const addText = () => {
@@ -20,6 +23,17 @@ const ButtonsUp = () => {
       }
     ])
     setText('')
+  }
+
+  const deleteSelected = () => {
+    const newList = list.filter((item) => !item.check)
+    setList(newList)
+    setDisplay(
+      {
+        ...display,
+        btnDeleteSelected: 'btnDeleteSelectedOff'
+      }
+    )
   }
 
   return (
@@ -38,6 +52,10 @@ const ButtonsUp = () => {
         >
           Adicionar
         </button>
+        <CgPlayListRemove
+          onClick={ deleteSelected }
+          className={ display.btnDeleteSelected }
+        />
       </div>
     </section>
   )

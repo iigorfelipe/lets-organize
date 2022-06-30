@@ -9,20 +9,22 @@ button {
 }
 
 .inputOff,
-.confirmOff,
+.readyOff,
 .cancelOff,
 .pendingOff,
+.confirmOff,
 .inProgressOff,
-.readyOff {
+.btnDeleteSelectedOff {
   display: none;
 }
 
 .inputOn,
-.confirmOn,
+.readyOn,
 .cancelOn,
 .pendingOn,
+.confirmOn,
 .inProgressOn,
-.readyOn {
+.btnDeleteSelectedOn {
   display: inline;
 }
 

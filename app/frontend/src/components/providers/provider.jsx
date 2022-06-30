@@ -14,7 +14,8 @@ const Provider = ({ children }) => {
     inProgress: 'inProgressOff',
     btnCancelClass: 'cancelOff',
     editedInputClass: 'inputOff',
-    btnConfirmClass: 'confirmOff'
+    btnConfirmClass: 'confirmOff',
+    btnDeleteSelected: 'btnDeleteSelectedOff'
   })
 
   useEffect(() => {

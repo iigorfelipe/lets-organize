@@ -22,3 +22,19 @@ export const activeDisplay = (display, id) => {
     editedInputClass: 'inputOn'
   }
 }
+
+export const handleBtnDeletetSelected = (display, list) => {
+  const allTrue = list.filter((item) => item.check)
+
+  if (allTrue.length >= 2) {
+    return {
+      ...display,
+      btnDeleteSelected: 'btnDeleteSelectedOn'
+    }
+  } else {
+    return {
+      ...display,
+      btnDeleteSelected: 'btnDeleteSelectedOff'
+    }
+  }
+}

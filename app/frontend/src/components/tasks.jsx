@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { BiEdit, BiTrash } from 'react-icons/bi'
 import Context from './providers/context'
-import { resetDisplay, activeDisplay } from './helpers/display'
+import { resetDisplay, activeDisplay, handleBtnDeletetSelected } from './helpers/display'
 
 const Tasks = () => {
   const {
@@ -13,19 +13,16 @@ const Tasks = () => {
 
   const handleCheck = (e, id) => {
     list.forEach((item) => {
-      if (item.id === id) {
-        item.check = e.target.checked
-      }
+      if (item.id === id) item.check = e.target.checked
     })
 
     setDisplay(resetDisplay(display))
+    setDisplay(handleBtnDeletetSelected(display, list))
   }
 
   const editText = (id) => {
     list.forEach((item) => {
-      if (item.id === id) {
-        setDisplay(activeDisplay(display, id))
-      }
+      if (item.id === id) setDisplay(activeDisplay(display, id))
     })
   }
 
@@ -44,8 +41,8 @@ const Tasks = () => {
               id={ i }
               type='checkbox'
               className='checkbox'
-              onChange={ (e) => handleCheck(e, item.id) }
               checked={ false || item.check}
+              onChange={ (e) => handleCheck(e, item.id) }
             />
             <label htmlFor={ i }>
               { item.newText }
