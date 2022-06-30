@@ -2,19 +2,22 @@ import React, { useContext } from 'react'
 import { BiEdit, BiTrash } from 'react-icons/bi'
 import Context from './providers/context'
 import { resetDisplay, activeDisplay } from './helpers/display'
-import { allChecked } from './helpers/checkbox'
 
 const Tasks = () => {
   const {
     list,
     setList,
     display,
-    setDisplay,
-    setNodeElement
+    setDisplay
   } = useContext(Context)
 
-  const handleCheck = () => {
-    setNodeElement(allChecked())
+  const handleCheck = (e, id) => {
+    list.forEach((item) => {
+      if (item.id === id) {
+        item.check = e.target.checked
+      }
+    })
+
     setDisplay(resetDisplay(display))
   }
 
@@ -31,7 +34,7 @@ const Tasks = () => {
 
     setList(newList)
   }
-  console.log(list)
+
   return (
     <div className='tasks-container'>
       {
@@ -41,7 +44,8 @@ const Tasks = () => {
               id={ i }
               type='checkbox'
               className='checkbox'
-              onClick={ handleCheck }
+              onChange={ (e) => handleCheck(e, item.id) }
+              checked={ false || item.check}
             />
             <label htmlFor={ i }>
               { item.newText }

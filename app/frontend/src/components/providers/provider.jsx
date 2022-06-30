@@ -7,7 +7,6 @@ const Provider = ({ children }) => {
   const [list, setList] = useState([])
   const [btnAdd, setBtnAdd] = useState(true)
   const [btnEdit, setBtnEdit] = useState(true)
-  const [nodeElement, setNodeElement] = useState([])
   const [display, setDisplay] = useState({
     textEdited: '',
     ready: 'readyOff',
@@ -40,9 +39,7 @@ const Provider = ({ children }) => {
         btnEdit,
         setBtnEdit,
         display,
-        setDisplay,
-        nodeElement,
-        setNodeElement
+        setDisplay
       } }
     >
       { children }
