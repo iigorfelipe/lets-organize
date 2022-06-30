@@ -1,14 +1,13 @@
 import React, { useContext } from 'react'
 import Context from '../providers/context'
 
-const ButtonsUp = (props) => {
+const ButtonsUp = () => {
   const {
     text,
     list,
     btnAdd,
     setText,
     setList,
-    setList2,
     btnDelete,
     nodeElement,
     setBtnDelete
@@ -33,51 +32,6 @@ const ButtonsUp = (props) => {
       }
     })
     setBtnDelete(true)
-    removeText()
-  }
-
-  const removeText = () => {
-    const allFalse = list.filter((item) => !item.check)
-    setList2(allFalse)
-
-    // list.filter(item => item.check === true)
-    //   .forEach(item => list.splice(list.indexOf(item), 1))
-  }
-
-  const sortABCD = () => {
-    list.sort((a, b) => {
-      if (a.newText > b.newText) return 1
-      if (a.newText < b.newText) return -1
-
-      setList([...list])
-      return 0
-    })
-  }
-
-  // const sortDATA = () => {
-  //   list.sort((a, b) => {
-  //     if (a.id > b.id) return 1
-  //     if (a.id < b.id) return -1
-
-  //     setList([...list])
-  //     return 0
-  //   })
-  // }
-
-  // const sortSTTS = () => {
-  //   list.sort((a, b) => {
-  //     if (a.stts > b.stts) return 1
-  //     if (a.stts < b.stts) return -1
-
-  //     setList([...list])
-  //     return 0
-  //   })
-  // }
-
-  const sortList = (order) => {
-    if (order === 'abcd') sortABCD()
-    // if (order === 'data') sortDATA()
-    // if (order === 'stts') sortSTTS()
   }
 
   return (
@@ -103,14 +57,6 @@ const ButtonsUp = (props) => {
           Remover
         </button>
       </div>
-      <label htmlFor='select'>
-        Ordenar por:
-      </label>
-      <select id='select' onChange={ (e) => sortList(e.target.value) }>
-        <option value='abcd'>Alfabética</option>
-        <option value='data'>Data de criação</option>
-        <option value='stts'>Status</option>
-      </select>
     </section>
   )
 }
