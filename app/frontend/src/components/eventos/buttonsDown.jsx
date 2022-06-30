@@ -41,7 +41,7 @@ const ButtonsDown = () => {
       if (item.id === index) {
         list.splice(index, 1,
           {
-            id: item.id,
+            ...item,
             newText: display.textEdited
           }
         )
