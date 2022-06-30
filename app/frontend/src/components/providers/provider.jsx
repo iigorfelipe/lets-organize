@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 const Provider = ({ children }) => {
   const [text, setText] = useState('')
   const [list, setList] = useState([])
+  const [newId, setNewId] = useState(0)
   const [btnAdd, setBtnAdd] = useState(true)
   const [btnEdit, setBtnEdit] = useState(true)
   const [display, setDisplay] = useState({
@@ -35,6 +36,8 @@ const Provider = ({ children }) => {
         setText,
         list,
         setList,
+        newId,
+        setNewId,
         btnAdd,
         setBtnAdd,
         btnEdit,

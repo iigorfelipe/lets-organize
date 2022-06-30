@@ -20,7 +20,7 @@ const Tasks = () => {
     setDisplay(handleBtnDeletetSelected(display, list))
   }
 
-  const editText = (id) => {
+  const editTask = (id) => {
     list.forEach((item) => {
       if (item.id === id) setDisplay(activeDisplay(display, id))
     })
@@ -51,7 +51,7 @@ const Tasks = () => {
             <div className='btns'>
               { item.stts }
               <BiEdit
-                onClick={ () => editText(item.id) }
+                onClick={ () => editTask(item.id) }
                 id='editIcon'
               />
               <BiTrash

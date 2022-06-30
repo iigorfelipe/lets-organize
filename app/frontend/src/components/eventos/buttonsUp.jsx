@@ -6,17 +6,21 @@ const ButtonsUp = () => {
   const {
     text,
     list,
+    newId,
     btnAdd,
     setText,
     setList,
     display,
+    setNewId,
     setDisplay
   } = useContext(Context)
 
   const addText = () => {
+    setNewId(newId + 1)
+
     setList([...list,
       {
-        id: list.length,
+        id: newId,
         newText: text,
         stts: '',
         check: false

@@ -37,9 +37,9 @@ const ButtonsDown = () => {
   const btnConfirmEdit = () => {
     const { index } = display
 
-    list.forEach((item) => {
+    list.forEach((item, i) => {
       if (item.id === index) {
-        list.splice(index, 1,
+        list.splice(i, 1,
           {
             ...item,
             newText: display.textEdited
