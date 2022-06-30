@@ -40,6 +40,38 @@ const ButtonsUp = () => {
     )
   }
 
+  const sortList = (order) => {
+    const newList = list
+
+    if (order === 'abcd') {
+      newList.sort((a, b) => {
+        if (a.newText > b.newText) return 1
+        if (a.newText < b.newText) return -1
+
+        else return 0
+      })
+    }
+    if (order === 'data') {
+      newList.sort((a, b) => {
+        if (a.id > b.id) return 1
+        if (a.id < b.id) return -1
+
+        else return 0
+      })
+    }
+    // if (order === 'stts') {
+    //   newList.sort((a, b) => {
+    //     if (a.stts > b.stts) return 1
+    //     if (a.stts < b.stts) return -1
+
+    //     setList([...newList])
+    //     return 0
+    //   })
+    // }
+
+    setList([...newList])
+  }
+
   return (
     <section className='btnsUp'>
       <div>
@@ -61,6 +93,11 @@ const ButtonsUp = () => {
           className={ display.btnDeleteSelected }
         />
       </div>
+      <select onChange={ (e) => sortList(e.target.value) }>
+        <option value='data'>Data de criação</option>
+        <option value='abcd'>Alfabética</option>
+        <option value='stts'>Status</option>
+      </select>
     </section>
   )
 }
