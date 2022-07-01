@@ -22,7 +22,10 @@ describe('ButtonsUp Component', () => {
 
     userEvent.type(inputAdd, 'one piece')
     userEvent.click(btnAdd)
+    userEvent.type(inputAdd, 'fçlakhfla')
+    userEvent.click(btnAdd)
 
     expect(screen.getByText('one piece')).toBeInTheDocument()
+    expect(screen.getByText('fçlakhfla')).toBeInTheDocument()
   })
 })
