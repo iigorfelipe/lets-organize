@@ -30,7 +30,7 @@ const ButtonsUp = () => {
     ])
     setText('')
   }
-  console.log(list)
+
   const deleteSelected = () => {
     const newList = list.filter((item) => !item.check)
     setList(newList)

@@ -3,9 +3,10 @@ import userEvent from '@testing-library/user-event'
 import React from 'react'
 import App from '../App'
 
-describe('ButtonsUp Component', () => {
-  test('É esperado que os valores do select estão corretos', () => {
-    render(<App />)
+describe('ButtonsUp Component. É esperado que:', () => {
+  beforeEach(() => render(<App />))
+
+  test('os valores do select estão corretos', () => {
     const stts = screen.getByText(/status/i)
     const abcd = screen.getByText(/alfabética/i)
     const data = screen.getByText(/data de criação/i)
@@ -15,8 +16,13 @@ describe('ButtonsUp Component', () => {
     expect(data).toBeInTheDocument()
   })
 
-  test('É esperado que seja possível adicionar uma tarefa', () => {
-    render(<App />)
+  test('o input de adicionar uma tarefa seja renderizado', () => {
+    const stts = screen.getByPlaceholderText(/digite uma tarefa/i)
+
+    expect(stts).toBeInTheDocument()
+  })
+
+  test('seja possível adicionar uma tarefa', () => {
     const inputAdd = screen.getByTestId('input-add')
     const btnAdd = screen.getByTestId('btn-add')
 
