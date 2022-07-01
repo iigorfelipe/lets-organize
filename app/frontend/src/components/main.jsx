@@ -1,8 +1,8 @@
 import React from 'react'
-import '../css/main.css'
 import Tasks from './tasks'
 import ButtonsUp from './eventos/buttonsUp'
 import ButtonsDown from './eventos/buttonsDown'
+import '../css/main.css'
 
 const Main = () => {
   return (

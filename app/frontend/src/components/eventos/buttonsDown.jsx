@@ -4,6 +4,7 @@ import { GiProgression } from 'react-icons/gi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import Context from '../providers/context'
 import { resetDisplay } from '../helpers/display'
+import '../../css/btsDown.css'
 
 const ButtonsDown = () => {
   const {

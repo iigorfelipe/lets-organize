@@ -1,0 +1,23 @@
+.btnsDown {
+  margin-top: 5px;
+}
+
+.div-input {
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 6px 5px 10px 0px gray;
+  background-color: rgb(230, 210, 210);
+}
+
+.div-input input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.edit-container {
+  border: 1px solid red;
+}
