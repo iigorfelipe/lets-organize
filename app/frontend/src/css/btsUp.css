@@ -1,0 +1,50 @@
+.btnsUp-container {
+  padding: 5px;
+}
+
+.input-div {
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 6px 5px 10px 0px gray;
+  background-color: rgb(230, 210, 210);
+}
+
+.text-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.select-div {
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.select-list {
+  border: none;
+  outline: none;
+  padding: 10px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.btnAdd {
+  margin: 5px;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.btnDelete {
+  display: flex;
+  font-size: large;
+  padding-left: 16px;
+}
+
+#btnDeleteIcon {
+  cursor: pointer;
+}

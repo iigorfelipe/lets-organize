@@ -1,0 +1,39 @@
+.tasks-container {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(230, 210, 210);
+}
+
+.todo-list {
+  display: flex;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 6px 5px 10px 0px gray;
+  background-color: rgb(247, 231, 231);
+}
+
+.checkbox, .editIcon {
+  cursor: pointer;
+}
+
+.text {
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
+.btnsTask-container {
+  display: flex;
+  align-items: center;
+}
+
+.btnsTask {
+  display: flex;
+  flex-direction: column;
+}
+
+.editIcon {
+  font-size: large;
+}

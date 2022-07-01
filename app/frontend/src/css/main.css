@@ -1,11 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  background: rgb(63, 56, 56);
-}
-
-button {
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(226, 239, 250);
 }
 
 .inputOff,
@@ -28,53 +26,11 @@ button {
   display: inline;
 }
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-}
-
-.tasks-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.btnsUp {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 15px;
-}
-
-.btnsUp input {
-  width: 300px;
-}
-
-.tasks-container div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 2px;
-}
-
-.div-input {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btnsDown input {
-  width: 300px;
-}
-
-.edit-container {
-  display: flex;
-  justify-content: flex-end;
-}
-
-#editIcon,
-#pendingIcon,
-#inProgressIcon,
-#readyIcon {
-  font-size: large;
+button {
   cursor: pointer;
+}
+
+.main-container {
+  background-color: rgb(226, 239, 250);
+  padding: 15px 0px;
 }

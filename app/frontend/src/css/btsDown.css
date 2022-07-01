@@ -1,0 +1,47 @@
+.btnsDown {
+  margin-top: 5px;
+}
+
+.div-input {
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(230, 210, 210);
+}
+
+.div-input input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.edit-container {
+  display: flex;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(230, 210, 210);
+}
+
+#readyIcon,
+#pendingIcon,
+#inProgressIcon {
+  font-size: large;
+  cursor: pointer;
+}
+
+.btnsEdit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#btnCancel, #btnConfirm {
+  border: none;
+  background: transparent;
+  font-size: large;
+}

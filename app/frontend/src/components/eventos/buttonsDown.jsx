@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-import { BsCheck2All } from 'react-icons/bs'
-import { GiProgression } from 'react-icons/gi'
+import { BsCheck2All, BsCheckCircle } from 'react-icons/bs'
+import { GiProgression, GiCancel } from 'react-icons/gi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import Context from '../providers/context'
 import { resetDisplay } from '../helpers/display'
+import '../../css/btsDown.css'
 
 const ButtonsDown = () => {
   const {
@@ -59,6 +60,8 @@ const ButtonsDown = () => {
       <div className='div-input'>
         <input
           type='text'
+          maxLength='45'
+          placeholder='Edite sua tarefa'
           className={ display.editedInputClass }
           onChange={
             (e) => setDisplay(
@@ -71,6 +74,23 @@ const ButtonsDown = () => {
           }
           value={ display.textEdited }
         />
+        <div className='btnsEdit'>
+          <button
+            id='btnCancel'
+            onClick={ (e) => setDisplay(resetDisplay(display)) }
+            className={ display.btnCancelClass }
+          >
+            <GiCancel />
+          </button>
+          <button
+            id='btnConfirm'
+            disabled={ btnEdit }
+            onClick={ btnConfirmEdit }
+            className={ display.btnConfirmClass }
+          >
+            <BsCheckCircle />
+          </button>
+        </div>
       </div>
       <div className='edit-container'>
         <AiOutlineClockCircle
@@ -83,24 +103,11 @@ const ButtonsDown = () => {
           className={ display.inProgress }
           onClick={ (e) => changeStatus(e.target.id) }
         />
-          <BsCheck2All
-            id='readyIcon'
-            className={ display.ready }
-            onClick={ (e) => changeStatus(e.target.id) }
-          />
-        <button
-          onClick={ (e) => setDisplay(resetDisplay(display)) }
-          className={ display.btnCancelClass }
-        >
-          Cancelar
-        </button>
-        <button
-          disabled={ btnEdit }
-          onClick={ btnConfirmEdit }
-          className={ display.btnConfirmClass }
-        >
-          Confirmar
-        </button>
+        <BsCheck2All
+          id='readyIcon'
+          className={ display.ready }
+          onClick={ (e) => changeStatus(e.target.id) }
+        />
       </div>
     </section>
   )

@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import Context from '../providers/context'
 import { CgPlayListRemove } from 'react-icons/cg'
+import { GrAdd } from 'react-icons/gr'
+import '../../css/btsUp.css'
 
 const ButtonsUp = () => {
   const {
@@ -73,32 +75,42 @@ const ButtonsUp = () => {
   }
 
   return (
-    <section className='btnsUp'>
-      <div>
+    <div className='btnsUp-container'>
+      <div className='input-div'>
         <input
           type='text'
-          maxLength='50'
+          maxLength='45'
           value={ text }
+          className='text-input'
           placeholder='Digite uma tarefa'
           onChange={ (e) => setText(e.target.value) }
         />
         <button
           disabled={ btnAdd }
           onClick={ addText }
-        >
-          Adicionar
+          className='btnAdd'
+          >
+          <GrAdd />
         </button>
+      </div>
+      <div className='select-div'>
+        <select
+          onChange={ (e) => sortList(e.target.value) }
+          className='select-list'
+        >
+          <option value='data'>Data de criação</option>
+          <option value='abcd'>Alfabética</option>
+          <option value='stts'>Status</option>
+        </select>
+      </div>
+      <div className='btnDelete'>
         <CgPlayListRemove
+          id='btnDeleteIcon'
           onClick={ deleteSelected }
           className={ display.btnDeleteSelected }
         />
       </div>
-      <select onChange={ (e) => sortList(e.target.value) }>
-        <option value='data'>Data de criação</option>
-        <option value='abcd'>Alfabética</option>
-        <option value='stts'>Status</option>
-      </select>
-    </section>
+    </div>
   )
 }
 
