@@ -82,13 +82,14 @@ const ButtonsUp = () => {
           maxLength='45'
           value={ text }
           className='text-input'
+          data-testid='input-add'
           placeholder='Digite uma tarefa'
           onChange={ (e) => setText(e.target.value) }
         />
         <button
           disabled={ btnAdd }
           onClick={ addText }
-          className='btnAdd'
+          data-testid='btn-add'
           >
           <GrAdd />
         </button>
