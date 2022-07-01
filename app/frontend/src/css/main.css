@@ -3,6 +3,7 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
+  background-color: rgb(226, 239, 250);
 }
 
 .inputOff,
@@ -30,6 +31,6 @@ button {
 }
 
 .main-container {
-  background-color: rgb(248, 239, 239);
+  background-color: rgb(226, 239, 250);
   padding: 15px 0px;
 }
