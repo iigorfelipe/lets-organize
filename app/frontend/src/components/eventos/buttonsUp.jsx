@@ -30,7 +30,7 @@ const ButtonsUp = () => {
     ])
     setText('')
   }
-  console.log(list)
+
   const deleteSelected = () => {
     const newList = list.filter((item) => !item.check)
     setList(newList)
@@ -82,13 +82,15 @@ const ButtonsUp = () => {
           maxLength='45'
           value={ text }
           className='text-input'
+          data-testid='input-add'
           placeholder='Digite uma tarefa'
           onChange={ (e) => setText(e.target.value) }
         />
         <button
+          className='btnAdd'
           disabled={ btnAdd }
           onClick={ addText }
-          className='btnAdd'
+          data-testid='btn-add'
           >
           <GrAdd />
         </button>
@@ -106,6 +108,7 @@ const ButtonsUp = () => {
       <div className='btnDelete'>
         <CgPlayListRemove
           id='btnDeleteIcon'
+          data-testid='icon-delete'
           onClick={ deleteSelected }
           className={ display.btnDeleteSelected }
         />

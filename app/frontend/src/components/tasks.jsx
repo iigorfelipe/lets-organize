@@ -48,18 +48,24 @@ const Tasks = () => {
               />
             </div>
             <label htmlFor={ i } className='text'>
-              { item.newText }
+              {
+                item.newText
+              }
             </label>
             <div className='btnsTask-container'>
-              { item.stts.icon }
+              {
+                item.stts.icon
+              }
               <div className='btnsTask'>
                 <BiEdit
-                  onClick={ () => editTask(item.id) }
                   className='editIcon'
+                  data-testid='edit-icon'
+                  onClick={ () => editTask(item.id) }
                 />
                 <BiTrash
-                  onClick={ () => deleteText(item.id) }
                   className='editIcon'
+                  data-testid='trash-icon'
+                  onClick={ () => deleteText(item.id) }
                 />
               </div>
             </div>
