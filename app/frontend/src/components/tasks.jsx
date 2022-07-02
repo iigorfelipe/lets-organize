@@ -54,10 +54,12 @@ const Tasks = () => {
               { item.stts.icon }
               <div className='btnsTask'>
                 <BiEdit
+                  data-testid='edit-icon'
                   onClick={ () => editTask(item.id) }
                   className='editIcon'
                 />
                 <BiTrash
+                  data-testid='trash-icon'
                   onClick={ () => deleteText(item.id) }
                   className='editIcon'
                 />

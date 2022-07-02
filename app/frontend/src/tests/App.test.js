@@ -69,9 +69,15 @@ describe('É esperado em Tasks que:', () => {
     userEvent.click(screen.getByTestId('btn-add'))
   })
 
-  test('tenha um checkbox renderizado', () => {
+  test('o checkbox esteja renderizado', () => {
     const checkbox = screen.queryByRole('checkbox')
 
     expect(checkbox).toBeInTheDocument()
+  })
+
+  test('o icone de editar tarefa esteja renderizado', () => {
+    const btnEdit = screen.getByTestId('edit-icon')
+
+    expect(btnEdit).toBeInTheDocument()
   })
 })
