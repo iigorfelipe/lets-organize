@@ -152,7 +152,7 @@ describe('É esperado em Tasks que:', () => {
 
     const btnDeleteSelected = screen.getByTestId('icon-delete')
 
-    expect(btnDeleteSelected).toBeInTheDocument()
+    expect(btnDeleteSelected).toHaveClass('btnDeleteSelectedOn')
   })
 
   test('todas tarefas selecionas sejam deletadas ao clicar no icone que renderizou', () => {
