@@ -22,6 +22,18 @@ describe('ButtonsUp Component. É esperado que:', () => {
     expect(stts).toBeInTheDocument()
   })
 
+  test('o botão de adicionar uma tarefa seja renderizado', () => {
+    const btnAdd = screen.getByTestId('input-add')
+
+    expect(btnAdd).toBeInTheDocument()
+  })
+
+  test('não tenha checkbox renderizado', () => {
+    const checkbox = screen.queryByRole('checkbox')
+
+    expect(checkbox).not.toBeInTheDocument()
+  })
+
   test('seja possível adicionar uma tarefa', () => {
     const inputAdd = screen.getByTestId('input-add')
     const btnAdd = screen.getByTestId('btn-add')
