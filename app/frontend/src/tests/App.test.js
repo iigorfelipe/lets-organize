@@ -35,6 +35,12 @@ describe('ButtonsUp Component', () => {
       expect(checkbox).not.toBeInTheDocument()
     })
 
+    test('o botão de adicionar uma tarefa esteja desativado', () => {
+      const btnAdd = screen.getByTestId('btn-add')
+
+      expect(btnAdd).toBeDisabled()
+    })
+
     test('seja possível adicionar uma tarefa', () => {
       const inputAdd = screen.getByTestId('input-add')
       const btnAdd = screen.getByTestId('btn-add')
