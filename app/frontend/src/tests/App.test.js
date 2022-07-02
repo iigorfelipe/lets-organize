@@ -182,4 +182,12 @@ describe('É esperado em Tasks que:', () => {
     expect(screen.queryByText('one piece')).not.toBeInTheDocument()
     expect(screen.queryByText('two piece')).not.toBeInTheDocument()
   })
+
+  test('clicar no icone da lixeira remove sua tarefa', () => {
+    const btnDelete = screen.getByTestId('trash-icon')
+
+    userEvent.click(btnDelete)
+
+    expect(screen.queryByText('one piece')).not.toBeInTheDocument()
+  })
 })
