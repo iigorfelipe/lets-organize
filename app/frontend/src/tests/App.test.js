@@ -44,7 +44,7 @@ describe('É esperado em ButtonsUp que:', () => {
     const inputAdd = screen.getByTestId('input-add')
     const btnAdd = screen.getByTestId('btn-add')
 
-    userEvent.type(inputAdd, 'one piece')
+    userEvent.type(inputAdd, 'task 1')
 
     expect(btnAdd).not.toBeDisabled()
   })
@@ -53,19 +53,19 @@ describe('É esperado em ButtonsUp que:', () => {
     const inputAdd = screen.getByTestId('input-add')
     const btnAdd = screen.getByTestId('btn-add')
 
-    userEvent.type(inputAdd, 'one piece')
+    userEvent.type(inputAdd, 'task 1')
     userEvent.click(btnAdd)
-    userEvent.type(inputAdd, 'fçlakhfla')
+    userEvent.type(inputAdd, 'task 2')
     userEvent.click(btnAdd)
 
-    expect(screen.getByText('one piece')).toBeInTheDocument()
-    expect(screen.getByText('fçlakhfla')).toBeInTheDocument()
+    expect(screen.getByText('task 1')).toBeInTheDocument()
+    expect(screen.getByText('task 2')).toBeInTheDocument()
   })
 })
 
 describe('É esperado em Tasks que:', () => {
   beforeEach(() => {
-    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
   })
 
@@ -104,11 +104,11 @@ describe('É esperado em Tasks que:', () => {
   })
 
   test('os valores do checkbox consigam ser true, false, true, false em uma lista de 4 tarefas', () => {
-    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
-    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
-    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
 
     const checkbox = screen.queryAllByRole('checkbox')
@@ -123,11 +123,11 @@ describe('É esperado em Tasks que:', () => {
   })
 
   test('os valores do checkbox consigam ser false, true, false, true em uma lista de 4 tarefas', () => {
-    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
-    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
-    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
 
     const checkbox = screen.queryAllByRole('checkbox')
@@ -142,7 +142,7 @@ describe('É esperado em Tasks que:', () => {
   })
 
   test('ao selecionar mais de uma tarefa um icone para remover elas seja renderizado', () => {
-    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
 
     const checkbox = screen.queryAllByRole('checkbox')
@@ -156,7 +156,7 @@ describe('É esperado em Tasks que:', () => {
   })
 
   test('o icone de remover as tarefas selecionadas não esteja renderizado caso apenas uma tarefa esteja selecionada', () => {
-    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
 
     const checkbox = screen.queryAllByRole('checkbox')
@@ -167,7 +167,7 @@ describe('É esperado em Tasks que:', () => {
   })
 
   test('todas tarefas selecionas sejam removidas ao clicar no icone que renderizou', () => {
-    userEvent.type(screen.getByTestId('input-add'), 'two piece')
+    userEvent.type(screen.getByTestId('input-add'), 'task 2')
     userEvent.click(screen.getByTestId('btn-add'))
 
     const checkbox = screen.queryAllByRole('checkbox')
@@ -179,8 +179,8 @@ describe('É esperado em Tasks que:', () => {
 
     userEvent.click(btnDeleteSelected)
 
-    expect(screen.queryByText('one piece')).not.toBeInTheDocument()
-    expect(screen.queryByText('two piece')).not.toBeInTheDocument()
+    expect(screen.queryByText('task 1')).not.toBeInTheDocument()
+    expect(screen.queryByText('task 2')).not.toBeInTheDocument()
   })
 
   test('clicar no icone da lixeira remove sua tarefa', () => {
@@ -188,6 +188,6 @@ describe('É esperado em Tasks que:', () => {
 
     userEvent.click(btnDelete)
 
-    expect(screen.queryByText('one piece')).not.toBeInTheDocument()
+    expect(screen.queryByText('task 1')).not.toBeInTheDocument()
   })
 })
