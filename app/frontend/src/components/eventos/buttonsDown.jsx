@@ -77,8 +77,8 @@ const ButtonsDown = () => {
         <div className='btnsEdit'>
           <button
             id='btnCancel'
-            onClick={ (e) => setDisplay(resetDisplay(display)) }
             className={ display.btnCancelClass }
+            onClick={ (e) => setDisplay(resetDisplay(display)) }
           >
             <GiCancel />
           </button>

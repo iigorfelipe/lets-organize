@@ -87,6 +87,7 @@ const ButtonsUp = () => {
           onChange={ (e) => setText(e.target.value) }
         />
         <button
+          className='btnAdd'
           disabled={ btnAdd }
           onClick={ addText }
           data-testid='btn-add'
