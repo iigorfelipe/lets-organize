@@ -102,4 +102,42 @@ describe('É esperado em Tasks que:', () => {
 
     expect(checkbox.checked).toEqual(false)
   })
+
+  test('os valores do checkbox consigam ser true, false, true, false em uma lista de 4 tarefas', () => {
+    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.click(screen.getByTestId('btn-add'))
+    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.click(screen.getByTestId('btn-add'))
+    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.click(screen.getByTestId('btn-add'))
+
+    const checkbox = screen.queryAllByRole('checkbox')
+
+    userEvent.click(checkbox[0])
+    userEvent.click(checkbox[2])
+
+    expect(checkbox[0].checked).toEqual(true)
+    expect(checkbox[1].checked).toEqual(false)
+    expect(checkbox[2].checked).toEqual(true)
+    expect(checkbox[3].checked).toEqual(false)
+  })
+
+  test('os valores do checkbox consigam ser false, true, false, true em uma lista de 4 tarefas', () => {
+    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.click(screen.getByTestId('btn-add'))
+    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.click(screen.getByTestId('btn-add'))
+    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.click(screen.getByTestId('btn-add'))
+
+    const checkbox = screen.queryAllByRole('checkbox')
+
+    userEvent.click(checkbox[1])
+    userEvent.click(checkbox[3])
+
+    expect(checkbox[0].checked).toEqual(false)
+    expect(checkbox[1].checked).toEqual(true)
+    expect(checkbox[2].checked).toEqual(false)
+    expect(checkbox[3].checked).toEqual(true)
+  })
 })
