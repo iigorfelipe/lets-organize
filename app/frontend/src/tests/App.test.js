@@ -190,4 +190,25 @@ describe('É esperado em Tasks que:', () => {
 
     expect(screen.queryByText('task 1')).not.toBeInTheDocument()
   })
+
+  test('seja possível remover várias tarefas (uma por vez) usando só o icone da lixeira', () => {
+    userEvent.type(screen.getByTestId('input-add'), 'task 1')
+    userEvent.click(screen.getByTestId('btn-add'))
+    userEvent.type(screen.getByTestId('input-add'), 'task 2')
+    userEvent.click(screen.getByTestId('btn-add'))
+    userEvent.type(screen.getByTestId('input-add'), 'task 3')
+    userEvent.click(screen.getByTestId('btn-add'))
+
+    const btnDelete = screen.getAllByTestId('trash-icon')
+
+    userEvent.click(btnDelete[0])
+    userEvent.click(btnDelete[0])
+    userEvent.click(btnDelete[0])
+    userEvent.click(btnDelete[0])
+
+    expect(screen.queryByText('task 0')).not.toBeInTheDocument()
+    expect(screen.queryByText('task 1')).not.toBeInTheDocument()
+    expect(screen.queryByText('task 2')).not.toBeInTheDocument()
+    expect(screen.queryByText('task 3')).not.toBeInTheDocument()
+  })
 })
