@@ -86,4 +86,12 @@ describe('É esperado em Tasks que:', () => {
 
     expect(btnDelete).toBeInTheDocument()
   })
+
+  test('o valor do checkbox é true ao selecionar uma tarefa', () => {
+    const checkbox = screen.queryByRole('checkbox')
+
+    userEvent.click(checkbox)
+
+    expect(checkbox.checked).toEqual(false)
+  })
 })
