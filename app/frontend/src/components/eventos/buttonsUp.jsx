@@ -108,6 +108,7 @@ const ButtonsUp = () => {
       <div className='btnDelete'>
         <CgPlayListRemove
           id='btnDeleteIcon'
+          data-testid='icon-delete'
           onClick={ deleteSelected }
           className={ display.btnDeleteSelected }
         />

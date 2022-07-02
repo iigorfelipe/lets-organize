@@ -140,4 +140,18 @@ describe('É esperado em Tasks que:', () => {
     expect(checkbox[2].checked).toEqual(false)
     expect(checkbox[3].checked).toEqual(true)
   })
+
+  test('ao selecionar mais de uma tarefa um icone para deletar elas seja renderizado', () => {
+    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.click(screen.getByTestId('btn-add'))
+
+    const checkbox = screen.queryAllByRole('checkbox')
+
+    userEvent.click(checkbox[0])
+    userEvent.click(checkbox[1])
+
+    const btnDeleteSelected = screen.getByTestId('icon-delete')
+
+    expect(btnDeleteSelected).toBeInTheDocument()
+  })
 })
