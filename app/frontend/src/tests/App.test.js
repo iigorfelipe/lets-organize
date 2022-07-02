@@ -106,9 +106,9 @@ describe('É esperado em Tasks que:', () => {
   test('os valores do checkbox consigam ser true, false, true, false em uma lista de 4 tarefas', () => {
     userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
-    userEvent.type(screen.getByTestId('input-add'), 'task 1')
+    userEvent.type(screen.getByTestId('input-add'), 'task 2')
     userEvent.click(screen.getByTestId('btn-add'))
-    userEvent.type(screen.getByTestId('input-add'), 'task 1')
+    userEvent.type(screen.getByTestId('input-add'), 'task 3')
     userEvent.click(screen.getByTestId('btn-add'))
 
     const checkbox = screen.queryAllByRole('checkbox')
@@ -125,9 +125,9 @@ describe('É esperado em Tasks que:', () => {
   test('os valores do checkbox consigam ser false, true, false, true em uma lista de 4 tarefas', () => {
     userEvent.type(screen.getByTestId('input-add'), 'task 1')
     userEvent.click(screen.getByTestId('btn-add'))
-    userEvent.type(screen.getByTestId('input-add'), 'task 1')
+    userEvent.type(screen.getByTestId('input-add'), 'task 2')
     userEvent.click(screen.getByTestId('btn-add'))
-    userEvent.type(screen.getByTestId('input-add'), 'task 1')
+    userEvent.type(screen.getByTestId('input-add'), 'task 3')
     userEvent.click(screen.getByTestId('btn-add'))
 
     const checkbox = screen.queryAllByRole('checkbox')
