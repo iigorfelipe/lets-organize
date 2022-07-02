@@ -154,4 +154,21 @@ describe('É esperado em Tasks que:', () => {
 
     expect(btnDeleteSelected).toBeInTheDocument()
   })
+
+  test('todas tarefas selecionas sejam deletadas ao clicar no icone que renderizou', () => {
+    userEvent.type(screen.getByTestId('input-add'), 'two piece')
+    userEvent.click(screen.getByTestId('btn-add'))
+
+    const checkbox = screen.queryAllByRole('checkbox')
+
+    userEvent.click(checkbox[0])
+    userEvent.click(checkbox[1])
+
+    const btnDeleteSelected = screen.getByTestId('icon-delete')
+
+    userEvent.click(btnDeleteSelected)
+
+    expect(screen.queryByText('one piece')).not.toBeInTheDocument()
+    expect(screen.queryByText('two piece')).not.toBeInTheDocument()
+  })
 })
