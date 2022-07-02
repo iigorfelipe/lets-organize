@@ -94,4 +94,12 @@ describe('É esperado em Tasks que:', () => {
 
     expect(checkbox.checked).toEqual(true)
   })
+
+  test('o valor do checkbox é false ao selecionar uma tarefa já selecionada', () => {
+    const checkbox = screen.queryByRole('checkbox')
+
+    userEvent.dblClick(checkbox)
+
+    expect(checkbox.checked).toEqual(false)
+  })
 })
