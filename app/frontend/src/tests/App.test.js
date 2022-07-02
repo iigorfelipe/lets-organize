@@ -81,7 +81,7 @@ describe('É esperado em Tasks que:', () => {
     expect(btnEdit).toBeInTheDocument()
   })
 
-  test('o icone de excluir tarefa esteja renderizado', () => {
+  test('o icone de uma lixeira esteja renderizado', () => {
     const btnDelete = screen.getByTestId('trash-icon')
 
     expect(btnDelete).toBeInTheDocument()
@@ -141,7 +141,7 @@ describe('É esperado em Tasks que:', () => {
     expect(checkbox[3].checked).toEqual(true)
   })
 
-  test('ao selecionar mais de uma tarefa um icone para deletar elas seja renderizado', () => {
+  test('ao selecionar mais de uma tarefa um icone para remover elas seja renderizado', () => {
     userEvent.type(screen.getByTestId('input-add'), 'one piece')
     userEvent.click(screen.getByTestId('btn-add'))
 
@@ -155,7 +155,7 @@ describe('É esperado em Tasks que:', () => {
     expect(btnDeleteSelected).toHaveClass('btnDeleteSelectedOn')
   })
 
-  test('o icone de deletar as tarefas selecionadas não esteja renderizado caso apenas uma tarefa esteja selecionada', () => {
+  test('o icone de remover as tarefas selecionadas não esteja renderizado caso apenas uma tarefa esteja selecionada', () => {
     userEvent.type(screen.getByTestId('input-add'), 'one piece')
     userEvent.click(screen.getByTestId('btn-add'))
 
@@ -166,7 +166,7 @@ describe('É esperado em Tasks que:', () => {
     expect(screen.getByTestId('icon-delete')).toHaveClass('btnDeleteSelectedOff')
   })
 
-  test('todas tarefas selecionas sejam deletadas ao clicar no icone que renderizou', () => {
+  test('todas tarefas selecionas sejam removidas ao clicar no icone que renderizou', () => {
     userEvent.type(screen.getByTestId('input-add'), 'two piece')
     userEvent.click(screen.getByTestId('btn-add'))
 
