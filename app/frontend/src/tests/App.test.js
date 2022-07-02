@@ -92,6 +92,6 @@ describe('É esperado em Tasks que:', () => {
 
     userEvent.click(checkbox)
 
-    expect(checkbox.checked).toEqual(false)
+    expect(checkbox.checked).toEqual(true)
   })
 })
