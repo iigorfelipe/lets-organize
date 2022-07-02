@@ -41,6 +41,15 @@ describe('ButtonsUp Component', () => {
       expect(btnAdd).toBeDisabled()
     })
 
+    test('o botão de adicionar uma tarefa é habilitado caso o input tenha um valor', () => {
+      const inputAdd = screen.getByTestId('input-add')
+      const btnAdd = screen.getByTestId('btn-add')
+
+      userEvent.type(inputAdd, 'one piece')
+
+      expect(btnAdd).not.toBeDisabled()
+    })
+
     test('seja possível adicionar uma tarefa', () => {
       const inputAdd = screen.getByTestId('input-add')
       const btnAdd = screen.getByTestId('btn-add')
