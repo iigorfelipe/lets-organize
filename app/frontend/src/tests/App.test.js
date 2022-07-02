@@ -62,3 +62,16 @@ describe('É esperado em ButtonsUp que:', () => {
     expect(screen.getByText('fçlakhfla')).toBeInTheDocument()
   })
 })
+
+describe('É esperado em Tasks que:', () => {
+  beforeEach(() => {
+    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.click(screen.getByTestId('btn-add'))
+  })
+
+  test('tenha um checkbox renderizado', () => {
+    const checkbox = screen.queryByRole('checkbox')
+
+    expect(checkbox).toBeInTheDocument()
+  })
+})
