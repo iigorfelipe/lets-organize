@@ -80,4 +80,10 @@ describe('É esperado em Tasks que:', () => {
 
     expect(btnEdit).toBeInTheDocument()
   })
+
+  test('o icone de excluir tarefa esteja renderizado', () => {
+    const btnDelete = screen.getByTestId('trash-icon')
+
+    expect(btnDelete).toBeInTheDocument()
+  })
 })
