@@ -155,6 +155,17 @@ describe('É esperado em Tasks que:', () => {
     expect(btnDeleteSelected).toHaveClass('btnDeleteSelectedOn')
   })
 
+  test('o icone de deletar as tarefas selecionadas não esteja renderizado caso apenas uma tarefa esteja selecionada', () => {
+    userEvent.type(screen.getByTestId('input-add'), 'one piece')
+    userEvent.click(screen.getByTestId('btn-add'))
+
+    const checkbox = screen.queryAllByRole('checkbox')
+
+    userEvent.click(checkbox[0])
+
+    expect(screen.getByTestId('icon-delete')).toHaveClass('btnDeleteSelectedOff')
+  })
+
   test('todas tarefas selecionas sejam deletadas ao clicar no icone que renderizou', () => {
     userEvent.type(screen.getByTestId('input-add'), 'two piece')
     userEvent.click(screen.getByTestId('btn-add'))
