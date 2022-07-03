@@ -18,8 +18,8 @@ const ButtonsUp = () => {
     setDisplay
   } = useContext(Context)
 
-  const saveTaskInDB = () => {
-    const url = 'http://localhost:3001/task'
+  const saveListInDB = () => {
+    const url = 'http://localhost:3001/'
 
     Axios
       .post(url, { task: [...list] })
@@ -38,7 +38,6 @@ const ButtonsUp = () => {
       }
     ])
 
-    saveTaskInDB()
     setText('')
   }
 
@@ -115,6 +114,7 @@ const ButtonsUp = () => {
           <option value='abcd'>Alfabética</option>
           <option value='stts'>Status</option>
         </select>
+        <button onClick={ saveListInDB }>Salvar lista</button>
       </div>
       <div className='btnDelete'>
         <CgPlayListRemove
