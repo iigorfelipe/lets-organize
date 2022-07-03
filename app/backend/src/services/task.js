@@ -1,11 +1,11 @@
-// const List = require('../database/models/list');
+const Model = require('../models/task');
 
-// const create = async (Task) => {
-//   const tasks = await List.
+const create = () => {
+  const tasks = Model.create()
 
-//   return tasks;
-// };
+  return tasks;
+};
 
-// module.exports =  {
-//   create,
-// }
+module.exports =  {
+  create,
+}

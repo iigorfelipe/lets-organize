@@ -1,12 +1,12 @@
 const service = require('../services/task');
 
-const create = async (req, res) => {
-  const { Task } = req.body;
+const create = (req, res) => {
+  // const { Task } = req.body;
 
-  const tasks = await service.create(Task);
+  const tasks = service.create();
   console.log(tasks)
 
-  return res.status(200).json(tasks);
+  // return res.status(200).json(tasks);
 };
 
 module.exports =  {

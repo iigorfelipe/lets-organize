@@ -4,6 +4,6 @@ const controller = require('../controllers/task');
 
 const taskRoute = express.Router();
 
-taskRoute.post('/', controller.create);
+taskRoute.get('/', controller.create);
 
 module.exports = taskRoute;
