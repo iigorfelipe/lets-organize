@@ -1,4 +1,4 @@
-const { List } = require('../models');
+import List from '../database/models/list';
 
 const getAll = async () => {
   const tasks = await List.findAll();
@@ -6,6 +6,6 @@ const getAll = async () => {
   return tasks;
 };
 
-module.exports = {
+export default {
   getAll,
 }

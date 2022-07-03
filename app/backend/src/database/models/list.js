@@ -1,4 +1,4 @@
-const List = (sequelize, DataTypes) => {
+export default List = (sequelize, DataTypes) => {
   const List = sequelize.define("List", {
     Task: DataTypes.STRING,
   }, {
@@ -7,5 +7,3 @@ const List = (sequelize, DataTypes) => {
 
   return List;
 };
-
-module.exports = List;
