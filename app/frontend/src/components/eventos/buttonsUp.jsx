@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Context from '../providers/context'
 import { CgPlayListRemove } from 'react-icons/cg'
 import { GrAdd } from 'react-icons/gr'
+import Axios from 'axios'
 import '../../css/btsUp.css'
 
 const ButtonsUp = () => {
@@ -17,6 +18,14 @@ const ButtonsUp = () => {
     setDisplay
   } = useContext(Context)
 
+  const saveTaskInDB = () => {
+    const url = 'http://localhost:3001/task'
+
+    Axios
+      .post(url, { task: [...list] })
+      .then((response) => console.log(response))
+  }
+
   const addText = () => {
     setNewId(newId + 1)
 
@@ -28,6 +37,8 @@ const ButtonsUp = () => {
         check: false
       }
     ])
+
+    saveTaskInDB()
     setText('')
   }
 
