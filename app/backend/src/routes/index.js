@@ -1,8 +1,9 @@
-import { Router } from 'express';
-import controller from '../controllers/task';
+const express = require('express');
 
-const taskRoute = Router();
+const controller = require('../controllers/task');
+
+const taskRoute = express.Router();
 
 taskRoute.get('/', controller.getAll);
 
-export default taskRoute;
+module.exports = taskRoute;

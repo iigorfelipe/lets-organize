@@ -1,4 +1,4 @@
-import taskRoute from './src/routes';
+const taskRoute = require('./src/routes');
 
 const PORT = 3001;
 const express = require('express');
