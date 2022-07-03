@@ -24,6 +24,8 @@ const ButtonsUp = () => {
     Axios
       .post(url, { task: [...list] })
       .then((response) => console.log(response))
+
+    alert('Sua lista foi salva!')
   }
 
   const addText = () => {
