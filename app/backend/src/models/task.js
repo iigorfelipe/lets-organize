@@ -1,13 +1,12 @@
 const db = require('../database/connection');
 
-const create = () => {
-  const SQL = "INSERT INTO List (Task) VALUES ('testando')";
+const create = (tasks) => {
+  const SQL = `
 
-  const tasks = db.query(SQL, (err, result) => {
-    console.log(err)
-  })
+  `
+  const list = db.query(SQL, (err, result) => console.log(err));
 
-  return tasks;
+  return list;
 };
 
 module.exports =  {

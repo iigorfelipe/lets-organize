@@ -1,12 +1,12 @@
 const service = require('../services/task');
 
 const create = (req, res) => {
-  // const { Task } = req.body;
+  const { tasks } = req.body;
 
-  const tasks = service.create();
-  console.log(tasks)
+  const list = service.create(tasks);
+  console.log(list)
 
-  // return res.status(200).json(tasks);
+  return res.status(200).json(list);
 };
 
 module.exports =  {

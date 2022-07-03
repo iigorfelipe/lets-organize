@@ -1,9 +1,9 @@
 const Model = require('../models/task');
 
-const create = () => {
-  const tasks = Model.create()
+const create = (tasks) => {
+  const list = Model.create(tasks)
 
-  return tasks;
+  return list;
 };
 
 module.exports =  {
