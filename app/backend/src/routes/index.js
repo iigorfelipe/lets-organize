@@ -3,6 +3,6 @@ import controller from '../controllers/task';
 
 const taskRoute = Router();
 
-taskRoute.get('/task', controller.getAll);
+taskRoute.get('/', controller.getAll);
 
 export default taskRoute;
