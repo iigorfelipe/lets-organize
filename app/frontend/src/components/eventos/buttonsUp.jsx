@@ -114,7 +114,12 @@ const ButtonsUp = () => {
           <option value='abcd'>Alfabética</option>
           <option value='stts'>Status</option>
         </select>
-        <button onClick={ saveListInDB }>Salvar lista</button>
+        <button
+          className='save-list'
+          onClick={ saveListInDB }
+        >
+          Salvar lista
+        </button>
       </div>
       <div className='btnDelete'>
         <CgPlayListRemove
