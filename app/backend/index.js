@@ -1,10 +1,10 @@
-const express = require("express");
+import taskRoute from './src/routes';
+
+const PORT = 3001;
+const express = require('express');
 const app = express();
 
-const PORT = 3001
-
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+app.use(express.json());
+app.use('/task', taskRoute);
 
 app.listen(PORT, () => console.log(`Rodando em: http://localhost:${PORT}`));
