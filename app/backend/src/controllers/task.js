@@ -1,11 +1,14 @@
 const service = require('../services/task');
 
-const getAll = async (_req, res) => {
-  const tasks = await service.getAll();
+const create = async (req, res) => {
+  const { Task } = req.body;
+
+  const tasks = await service.create(Task);
+  console.log(tasks)
 
   return res.status(200).json(tasks);
 };
 
 module.exports =  {
-  getAll,
+  create,
 }

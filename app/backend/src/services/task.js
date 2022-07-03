@@ -1,11 +1,11 @@
-const List = require('../database/models');
+// const List = require('../database/models/list');
 
-const getAll = async () => {
-  const tasks = await List.findAll();
+// const create = async (Task) => {
+//   const tasks = await List.
 
-  return tasks;
-};
+//   return tasks;
+// };
 
-module.exports =  {
-  getAll,
-}
+// module.exports =  {
+//   create,
+// }
