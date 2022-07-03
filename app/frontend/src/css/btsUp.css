@@ -20,20 +20,20 @@
 
 .select-div {
   display: flex;
+  margin-top: 7px;
+  align-items: center;
   border-radius: 10px;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .select-list {
   border: none;
   outline: none;
-  padding: 10px;
   cursor: pointer;
   background: transparent;
 }
 
 .save-list {
-  margin: 5px;
   border: none;
   outline: none;
   padding: 10px;

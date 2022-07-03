@@ -106,6 +106,12 @@ const ButtonsUp = () => {
         </button>
       </div>
       <div className='select-div'>
+        <CgPlayListRemove
+          id='btnDeleteIcon'
+          data-testid='icon-delete'
+          onClick={ deleteSelected }
+          className={ display.btnDeleteSelected }
+        />
         <select
           onChange={ (e) => sortList(e.target.value) }
           className='select-list'
@@ -120,14 +126,6 @@ const ButtonsUp = () => {
         >
           Salvar lista
         </button>
-      </div>
-      <div className='btnDelete'>
-        <CgPlayListRemove
-          id='btnDeleteIcon'
-          data-testid='icon-delete'
-          onClick={ deleteSelected }
-          className={ display.btnDeleteSelected }
-        />
       </div>
     </div>
   )
