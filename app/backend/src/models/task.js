@@ -1,14 +1,16 @@
-const db = require('../database/connection');
+const db = require("../database/connection");
 
-const create = (tasks) => {
-  const SQL = `
+const create = (task) => {
+  task.forEach((task) => {
+    if (task.check) task.check = 0;
+    else task.check = 1;
 
-  `
-  const list = db.query(SQL, (err, result) => console.log(err));
+    const SQL = 'INSERT INTO lists (newID, task, status, checked) VALUES (?, ?, ?, ?)';
 
-  return list;
+    db.query(SQL, [task.id, task.newText, task.stts.id, task.check]);
+  });
 };
 
-module.exports =  {
+module.exports = {
   create,
-}
+};
