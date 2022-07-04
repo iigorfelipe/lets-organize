@@ -20,16 +20,26 @@
 
 .select-div {
   display: flex;
+  margin-top: 7px;
+  align-items: center;
   border-radius: 10px;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .select-list {
   border: none;
   outline: none;
-  padding: 10px;
   cursor: pointer;
   background: transparent;
+}
+
+.save-list {
+  border: none;
+  outline: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: rgb(230, 210, 210);
 }
 
 .btnAdd {

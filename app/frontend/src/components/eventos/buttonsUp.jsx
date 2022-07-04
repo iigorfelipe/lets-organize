@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Context from '../providers/context'
 import { CgPlayListRemove } from 'react-icons/cg'
 import { GrAdd } from 'react-icons/gr'
+import Axios from 'axios'
 import '../../css/btsUp.css'
 
 const ButtonsUp = () => {
@@ -17,6 +18,16 @@ const ButtonsUp = () => {
     setDisplay
   } = useContext(Context)
 
+  const saveListInDB = () => {
+    const url = 'http://localhost:3001/'
+
+    Axios
+      .post(url, { task: [...list] })
+      .then((response) => console.log(response))
+
+    alert('Sua lista foi salva!')
+  }
+
   const addText = () => {
     setNewId(newId + 1)
 
@@ -28,6 +39,7 @@ const ButtonsUp = () => {
         check: false
       }
     ])
+
     setText('')
   }
 
@@ -96,6 +108,12 @@ const ButtonsUp = () => {
         </button>
       </div>
       <div className='select-div'>
+        <CgPlayListRemove
+          id='btnDeleteIcon'
+          data-testid='icon-delete'
+          onClick={ deleteSelected }
+          className={ display.btnDeleteSelected }
+        />
         <select
           onChange={ (e) => sortList(e.target.value) }
           className='select-list'
@@ -104,14 +122,12 @@ const ButtonsUp = () => {
           <option value='abcd'>Alfabética</option>
           <option value='stts'>Status</option>
         </select>
-      </div>
-      <div className='btnDelete'>
-        <CgPlayListRemove
-          id='btnDeleteIcon'
-          data-testid='icon-delete'
-          onClick={ deleteSelected }
-          className={ display.btnDeleteSelected }
-        />
+        <button
+          className='save-list'
+          onClick={ saveListInDB }
+        >
+          Salvar lista
+        </button>
       </div>
     </div>
   )
