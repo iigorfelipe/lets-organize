@@ -6,6 +6,13 @@ const create = (task) => {
   return list;
 };
 
+const getAll = () => {
+  const list = Model.getAll()
+
+  return list;
+};
+
 module.exports =  {
   create,
+  getAll,
 }

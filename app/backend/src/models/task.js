@@ -11,6 +11,17 @@ const create = (task) => {
   });
 };
 
+const getAll = () => {
+  const SQL = 'SELECT * FROM lists';
+
+  db.query(SQL, (err, result) => {
+    if (err) console.log(err);
+
+    return result
+  });
+};
+
 module.exports = {
   create,
+  getAll,
 };
