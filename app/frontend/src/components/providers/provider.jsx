@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Context from './context'
 import PropTypes from 'prop-types'
+import Axios from 'axios'
 
 const Provider = ({ children }) => {
   const [text, setText] = useState('')
@@ -28,6 +29,12 @@ const Provider = ({ children }) => {
     if (display.textEdited.trim()) setBtnEdit(false)
     else setBtnEdit(true)
   })
+
+  useEffect(() => {
+    Axios
+      .get('http://localhost:3001/')
+      .then((response) => console.log(response))
+  }, [])
 
   return (
     <Context.Provider
