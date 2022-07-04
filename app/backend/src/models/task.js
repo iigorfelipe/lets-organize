@@ -2,8 +2,8 @@ const db = require('../database/connection');
 
 const create = (task) => {
   task.forEach((task) => {
-    if (task.check) task.check = 0;
-    else task.check = 1;
+    if (task.check) task.check = 1;
+    else task.check = 0;
 
     const SQL =
       'INSERT INTO lists (newID, task, status, checked) VALUES (?, ?, ?, ?)';
