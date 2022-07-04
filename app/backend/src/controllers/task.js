@@ -8,13 +8,13 @@ const create = (req, res) => {
   return res.status(200).json(list);
 };
 
-const getAll = (req, res) => {
-  const list = service.getAll();
+// const getAll = (req, res) => {
+//   const list = service.getAll();
 
-  return res.send(list);
-};
+//   return res.send(list);
+// };
 
-module.exports =  {
+module.exports = {
   create,
-  getAll,
-}
+  // getAll,
+};

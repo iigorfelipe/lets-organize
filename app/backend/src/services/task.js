@@ -1,18 +1,18 @@
 const Model = require('../models/task');
 
 const create = (task) => {
-  const list = Model.create(task)
+  const list = Model.create(task);
 
   return list;
 };
 
-const getAll = () => {
-  const list = Model.getAll()
+// const getAll = () => {
+//   const list = Model.getAll()
 
-  return list;
-};
+//   return list;
+// };
 
-module.exports =  {
+module.exports = {
   create,
-  getAll,
-}
+  // getAll,
+};
