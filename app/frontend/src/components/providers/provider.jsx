@@ -63,3 +63,17 @@ Provider.propTypes = {
 }
 
 export default Provider
+
+// {
+//   if (response.data.length >= 1) {
+//     const newList = response.data.map((item) => {
+//       return {
+//         id: item.newId,
+//         newText: item.task,
+//         stts: { id: item.status, icon: '' },
+//         check: item.checked
+//       }
+//     })
+//     setList(newList)
+//   } else setList([...list])
+// })
