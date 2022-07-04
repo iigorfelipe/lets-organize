@@ -1,9 +1,7 @@
 const Model = require('../models/task');
 
 const create = (task) => {
-  const list = Model.create(task);
-
-  return list;
+  Model.create(task);
 };
 
 // const getAll = () => {
