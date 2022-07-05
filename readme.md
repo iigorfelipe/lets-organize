@@ -92,4 +92,8 @@ No momento só estou querendo fazer funcionar mas pretendo atualizar tudo para T
   O botão "Salvar lista" salva o estado atual da lista no banco de dados, quero futuramente implementar um login para quando um usuário logar recuperar somente as tarefas corretas desse usuário, mas por enquanto o botão só salva e não recupera os dados de volta, por isso não adicionei a instrução de como usar no passo a passo.
 
 ----
+
+[ <source src="https://user-images.githubusercontent.com/87145566/177356559-05cf20ab-afb7-498c-a97b-7c5c305c7bd1.mp4" type="video/mp4">](https://user-images.githubusercontent.com/87145566/177356559-05cf20ab-afb7-498c-a97b-7c5c305c7bd1.mp4)
+
+----
 Caso queira conferir, acesse: https://iigorfelipe.github.io/lets-organize
