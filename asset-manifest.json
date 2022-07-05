@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/lets-organize/static/css/main.fe28acae.css",
+    "main.js": "/lets-organize/static/js/main.bfafb6e4.js",
+    "index.html": "/lets-organize/index.html",
+    "main.fe28acae.css.map": "/lets-organize/static/css/main.fe28acae.css.map",
+    "main.bfafb6e4.js.map": "/lets-organize/static/js/main.bfafb6e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe28acae.css",
+    "static/js/main.bfafb6e4.js"
+  ]
+}
