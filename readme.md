@@ -18,6 +18,9 @@ Na Ebytr o time de desenvolvimento utiliza a Stack MySQL, Express, React e Node 
 - A tarefa deve possuir um status editável: pendente, em andamento ou pronto;
 
 -----
+## Projeto em produção
+Estou adicionando commits com frequência, caso queira conferir a minha evolução é só visitar esse repositório. </br>
+No momento só estou querendo fazer funcionar mas pretendo atualizar tudo para TypeScript em breve. </br>
 
 ## Instalação
 
