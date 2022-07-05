@@ -16,3 +16,27 @@ Na Ebytr o time de desenvolvimento utiliza a Stack MySQL, Express, React e Node 
 - Remover uma tarefa da lista;
 - Atualizar uma tarefa da lista;
 - A tarefa deve possuir um status editável: pendente, em andamento ou pronto;
+
+-----
+
+## Instalação
+
+```git clone git@github.com:iigorfelipe/lets-organize.git```
+
+- Frontend
+
+```cd lets-organize/app/frontend```
+
+```npm install```
+
+```npm start```
+
+- Backend
+
+```cd lets-organize/app/backend```
+
+```npm install```
+
+```npm run dev```
+
+
