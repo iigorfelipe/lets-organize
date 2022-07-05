@@ -42,4 +42,16 @@ No momento só estou querendo fazer funcionar mas pretendo atualizar tudo para T
 
 ```npm run dev```
 
+## Tecnologias usadas
 
+- Git
+- JavaScript
+- React
+- Hooks
+- Jest
+- CSS
+- Context API
+- NodeJS
+- Express
+- MySQL
+- Axios
