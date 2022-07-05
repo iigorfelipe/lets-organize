@@ -42,6 +42,14 @@ No momento só estou querendo fazer funcionar mas pretendo atualizar tudo para T
 
 ```npm run dev```
 
+## Testes
+
+- Frontend
+
+```cd lets-organize/app/frontend```
+
+```npm run test```
+
 ## Tecnologias usadas
 
 - Git
@@ -58,32 +66,27 @@ No momento só estou querendo fazer funcionar mas pretendo atualizar tudo para T
 
 ## Como usar
 
-1. Para adicionar uma tarefa:
+1. Adicionar uma tarefa:
     - Digite algo no campo "Digite uma tarefa" para habilitar o botão de adicionar.
-    - Assim que o botão à direita do campo ficar disponível você pode clicar nele para adicionar sua tarefa.
-    - Pronto sua tarefa já está na lista :)
+    - Clica nele para adicionar sua tarefa.
 
 2. Editar uma tarefa:
     - Acima do icone da lixeira, tem um icone de edição, clicar nele abrirá um campo "Edite sua tarefa" no final da lista.
-    - Digite sua nova alteração nesse campo e confirma a alterção clicando no icone de check a direta.
-    - Pronto sua tarefa já está editada :)
+    - Digite sua nova alteração nesse campo e confirma no icone de check à direta.
 
 3. Remover uma ou várias tarefas:
     - Clique no icone da lixeira correspondente a tarefa caso deseje remover apenas uma.
-    - Selecione várias tarefas, clicando nelas ou no checkbox correspondente à esquerda para aparecer um novo icone no topo.
-    - O icone (listinha com 'x') que surgiu acima de todos checkbox remove todas as tarefas que estiver selecionada.
-    - Pronto suas tarefas foram removidas da lista :)
+    - Selecionar várias tarefas faz aparecer um novo icone (listinha com 'x') no topo.
+    - Clicar nesse icone irá remover todas as tarefas selecionadas.
 
 4. Adicionar status à sua tarefa:
-    - Os status ficam abaixo do campo de "Edite sua tarefa", então clique no icone de editar pra eles aparecerem.
+    - Os status ficam abaixo do campo de "Edite sua tarefa".
     - São eles da esquerda pra direita: em andamento, em progresso e pronto.
     - Clicar em um deles fará sua tarefa ter o mesmo icone.
-    - Pronto suas tarefas possuem um status :)
 
 5. Ordenar sua lista de tarefas:
     - Clique em "Data de criação" no topo da lista para ver todas as opções.
     - Escolha entre: Data de criação, alfabetica ou status.
-    - Pronto suas tarefas estão ordenadas :)
     
 #### Observação
   O botão "Salvar lista" salva o estado atual da lista no banco de dados, quero futuramente implementar um login para quando um usuário logar recuperar somente as tarefas corretas desse usuário, mas por enquanto o botão só salva e não recupera os dados de volta, por isso não adicionei a instrução de como usar no passo a passo.
